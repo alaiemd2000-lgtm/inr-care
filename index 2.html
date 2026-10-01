@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0b1f3a">
+<title>INR Care — Premium UI</title>
+<style>
+:root{
+  --navy:#0b1f3a;
+  --navy2:#123a67;
+  --blue:#2f7ee6;
+  --cyan:#5ab5f5;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#122033;
+  --muted:#7a8597;
+  --line:#e8edf3;
+  --green:#1f9d68;
+  --orange:#ed7b34;
+  --red:#df4a5d;
+  --shadow:0 12px 30px rgba(18,32,51,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+body{min-height:100vh}
+button,input{font:inherit}
+#app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:94px}
+.heroHead{
+  background:linear-gradient(145deg,var(--navy),var(--navy2));
+  color:#fff;padding:calc(18px + env(safe-area-inset-top)) 18px 24px;
+  border-radius:0 0 32px 32px;position:relative;overflow:hidden
+}
+.heroHead:before,.heroHead:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.06)}
+.heroHead:before{width:180px;height:180px;left:-65px;top:-75px}
+.heroHead:after{width:110px;height:110px;right:-35px;bottom:-45px}
+.topline{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.logo{width:50px;height:50px;border-radius:16px;background:linear-gradient(145deg,#4b9cf4,#2f7ee6);display:flex;align-items:center;justify-content:center;font-weight:900;box-shadow:0 12px 24px rgba(20,69,129,.35)}
+.headText{flex:1}.eyebrow{font-size:12px;color:#b8cff0;font-weight:800}.headTitle{font-size:27px;font-weight:900;margin-top:2px}
+.globe{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);color:#fff;font-size:20px}
+.roleSwitch{display:flex;background:rgba(255,255,255,.08);padding:4px;border-radius:15px;margin-top:18px;position:relative;z-index:1}
+.roleSwitch button{flex:1;border:0;background:transparent;color:#c7d7eb;padding:10px;border-radius:12px;font-weight:800}
+.roleSwitch button.active{background:#fff;color:var(--navy);box-shadow:0 6px 16px rgba(0,0,0,.16)}
+.page{padding:18px}
+.quickRow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:-14px;position:relative;z-index:2}
+.quickCard{background:#fff;border-radius:18px;padding:13px 8px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center}
+.quickValue{font-size:24px;font-weight:900}.quickLabel{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.25}
+.sectionRow{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}
+.sectionTitle{font-size:18px;font-weight:900}
+.sectionAction{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:800}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:15px;margin-bottom:11px}
+.patientCard{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px}
+.avatar{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#eaf3ff,#dfeefe);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
+.pName{font-size:16px;font-weight:900}.pMeta{font-size:11px;color:var(--muted);line-height:1.45;margin-top:4px}
+.inrBox{min-width:72px;border-radius:15px;padding:10px 8px;text-align:center;border:1px solid}
+.inrBox b{display:block;font-size:23px}.inrBox small{font-size:9px;font-weight:900}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800;margin-top:7px}
+.search{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 15px;box-shadow:var(--shadow);outline:none}
+.segment{display:flex;background:#e9eef4;padding:4px;border-radius:15px;margin:12px 0}
+.segment button{flex:1;border:0;background:transparent;border-radius:12px;padding:9px;color:var(--muted);font-weight:800}
+.segment button.active{background:#fff;color:var(--blue)}
+.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.infoCard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow)}
+.infoLabel{color:var(--muted);font-size:11px}.infoValue{font-weight:900;margin-top:5px}
+.bigINR{text-align:center;padding:20px;background:linear-gradient(145deg,#fff,#f8fbff);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.bigINR .num{font-size:64px;font-weight:900;line-height:1}.bigINR .state{font-weight:900;margin-top:7px}
+.doses{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.dose{background:#f7f9fc;border-radius:12px;text-align:center;padding:9px 2px}.dose small{display:block;font-size:9px;color:var(--muted);margin-bottom:4px}.dose b{font-size:12px}
+.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;background:linear-gradient(135deg,var(--blue),#4e98ee);color:#fff;font-weight:900;box-shadow:0 10px 20px rgba(47,126,230,.24)}
+.btn.secondary{background:#fff;color:var(--blue);border:1px solid #cfe0f7;box-shadow:none}
+.chartCard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:var(--shadow)}
+.chart{width:100%;height:135px}
+.notice{padding:12px 13px;border-radius:15px;background:#fff7e7;border:1px solid #f0d68c;color:#725615;font-size:11px;line-height:1.6}
+.checkRow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.checkRow:last-child{border-bottom:0}
+.check{width:22px;height:22px;border-radius:7px;border:1.5px solid #b8c2cf;display:flex;align-items:center;justify-content:center}
+.check.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.stepRow{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.stepper{display:flex;align-items:center;gap:8px}.stepper button{width:34px;height:34px;border:0;border-radius:10px;background:#edf4fd;color:var(--blue);font-size:18px;font-weight:900}.stepper span{min-width:68px;text-align:center;font-weight:900}
+.langMenu{display:none;margin-top:12px}.langMenu.show{display:block}
+.langItem{display:flex;justify-content:space-between;padding:11px 4px;border-bottom:1px solid var(--line)}.langItem:last-child{border-bottom:0}.langItem.active{color:var(--blue);font-weight:900}
+.backBar{display:flex;align-items:center;gap:12px;margin-bottom:15px}.backBtn{width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:14px;font-size:25px}.backTitle{font-size:22px;font-weight:900}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20}
+.nav button{flex:1;border:0;background:transparent;color:#8a94a5;font-size:10px;font-weight:800}.nav .icon{display:block;font-size:20px;margin-bottom:3px}.nav button.active{color:var(--blue)}
+.patientWelcome{background:linear-gradient(145deg,#fff,#f6faff);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+.todayDose{font-size:40px;font-weight:900;color:var(--blue)}
+.footer{font-size:10px;color:var(--muted);text-align:center;margin:18px 0}
+@media(max-width:390px){.quickLabel{font-size:9px}.quickValue{font-size:22px}.headTitle{font-size:25px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const L={
+fa:{dir:'rtl',doctor:'پزشک',patient:'بیمار',doctorPanel:'داشبورد پزشک',patientPanel:'پنل بیمار',new:'INR جدید',needs:'نیازمند اقدام',overdue:'موعد گذشته',patients:'بیماران',recent:'بیماران اخیر',viewAll:'مشاهده همه',target:'هدف INR',weekly:'دوز هفتگی',history:'تاریخچه INR',review:'بررسی و تنظیم',home:'خانه',more:'بیشتر',search:'جستجوی بیمار',recentTab:'اخیر',az:'الفبایی',todayDose:'دوز امروز',next:'INR بعدی',register:'ثبت INR جدید',clinical:'عوامل بالینی',save:'تأیید و ذخیره',high:'بالاتر از هدف',low:'پایین‌تر از هدف',ok:'در محدوده هدف',urgent:'بررسی فوری'},
+en:{dir:'ltr',doctor:'Doctor',patient:'Patient',doctorPanel:'Doctor Dashboard',patientPanel:'Patient Portal',new:'New INR',needs:'Needs action',overdue:'Overdue',patients:'Patients',recent:'Recent patients',viewAll:'View all',target:'INR target',weekly:'Weekly dose',history:'INR history',review:'Review & adjust',home:'Home',more:'More',search:'Search patients',recentTab:'Recent',az:'A–Z',todayDose:'Today’s dose',next:'Next INR',register:'Add new INR',clinical:'Clinical factors',save:'Approve & save',high:'Above target',low:'Below target',ok:'In target range',urgent:'Urgent review'},
+ar:{dir:'rtl',doctor:'طبيب',patient:'مريض',doctorPanel:'لوحة الطبيب',patientPanel:'بوابة المريض',new:'INR جديد',needs:'يحتاج إجراء',overdue:'متأخر',patients:'المرضى',recent:'المرضى الأخيرون',viewAll:'عرض الكل',target:'هدف INR',weekly:'الجرعة الأسبوعية',history:'سجل INR',review:'مراجعة وتعديل',home:'الرئيسية',more:'المزيد',search:'بحث المرضى',recentTab:'الأحدث',az:'أبجدي',todayDose:'جرعة اليوم',next:'INR القادم',register:'إضافة INR',clinical:'العوامل السريرية',save:'تأكيد وحفظ',high:'أعلى من الهدف',low:'أقل من الهدف',ok:'ضمن الهدف',urgent:'مراجعة عاجلة'},
+de:{dir:'ltr',doctor:'Arzt',patient:'Patient',doctorPanel:'Arzt-Dashboard',patientPanel:'Patientenportal',new:'Neuer INR',needs:'Handlungsbedarf',overdue:'Überfällig',patients:'Patienten',recent:'Letzte Patienten',viewAll:'Alle anzeigen',target:'INR-Ziel',weekly:'Wochendosis',history:'INR-Verlauf',review:'Prüfen & anpassen',home:'Start',more:'Mehr',search:'Patienten suchen',recentTab:'Zuletzt',az:'A–Z',todayDose:'Heutige Dosis',next:'Nächster INR',register:'INR hinzufügen',clinical:'Klinische Faktoren',save:'Bestätigen & speichern',high:'Über Ziel',low:'Unter Ziel',ok:'Im Zielbereich',urgent:'Dringend prüfen'}
+};
+const N={fa:['علی رضایی','مریم احمدی','حسن کریمی'],ar:['علي رضائي','مريم أحمدي','حسن كريمي'],en:['Ali Rezaei','Maryam Ahmadi','Hasan Karimi'],de:['Ali Rezaei','Maryam Ahmadi','Hasan Karimi']};
+let lang='fa',role='doctor',screen='home',selected=0,sortMode='recent',tmp=[];
+let P=[
+{k:0,ind:'Mechanical mitral valve',min:2.5,max:3.5,inr:4.1,doses:[5,5,2.5,5,5,5,2.5],hist:[2.8,3.1,3.6,4.1]},
+{k:1,ind:'Atrial fibrillation',min:2,max:3,inr:2.6,doses:[2.5,5,2.5,5,2.5,5,2.5],hist:[2.4,2.5,2.7,2.6]},
+{k:2,ind:'VTE',min:2,max:3,inr:1.7,doses:[5,5,5,2.5,5,5,2.5],hist:[2.5,2.3,2.1,1.7]}
+];
+const A=document.getElementById('app');
+function t(k){return L[lang][k]||k} function pn(p){return N[lang]?.[p.k]||N.en[p.k]}
+function stat(p){if(p.inr>=5||p.inr<=1.3)return[t('urgent'),'var(--red)','#fff0f3'];if(p.inr<p.min)return[t('low'),'var(--orange)','#fff3eb'];if(p.inr>p.max)return[t('high'),'var(--orange)','#fff3eb'];return[t('ok'),'var(--green)','#ecf8f2']}
+function wk(a){return a.reduce((x,y)=>x+y,0)} function f(n){return Number.isInteger(n)?n:n.toFixed(1)}
+function langMenu(){return `<div id="langs" class="card langMenu">${[['fa','فارسی'],['en','English'],['ar','العربية'],['de','Deutsch']].map(([c,n])=>`<div class="langItem ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div>`}
+function setLang(c){lang=c;document.documentElement.dir=L[c].dir;render()} function toggleLang(){document.getElementById('langs')?.classList.toggle('show')}
+function hero(){return `<div class="heroHead"><div class="topline"><div class="logo">INR</div><div class="headText"><div class="eyebrow">${role==='doctor'?t('doctorPanel'):t('patientPanel')}</div><div class="headTitle">INR Care</div></div><button class="globe" onclick="toggleLang()">🌐</button></div><div class="roleSwitch"><button class="${role==='doctor'?'active':''}" onclick="role='doctor';screen='home';render()">${t('doctor')}</button><button class="${role==='patient'?'active':''}" onclick="role='patient';screen='home';render()">${t('patient')}</button></div>${langMenu()}</div>`}
+function nav(){let items=role==='doctor'?[['home','⌂',t('home')],['patients','👥',t('patients')],['new','●',t('new')],['more','•••',t('more')]]:[['home','⌂',t('home')],['history','≋',t('history')],['msg','✉','Messages'],['more','•••',t('more')]];return `<div class="nav">${items.map(([s,i,l])=>`<button class="${screen===s?'active':''}" onclick="screen='${s}';render()"><span class="icon">${i}</span>${l}</button>`).join('')}</div>`}
+function pCard(p,i){let s=stat(p);return `<div class="card patientCard" onclick="selected=${i};screen='profile';render()"><div class="avatar">${pn(p).charAt(0)}</div><div><div class="pName">${pn(p)}</div><div class="pMeta">${p.ind}<br>${t('target')}: ${p.min}–${p.max}</div></div><div class="inrBox" style="color:${s[1]};border-color:${s[1]}55;background:${s[2]}"><b>${p.inr.toFixed(1)}</b><small>${s[0]}</small></div></div>`}
+function doctorHome(){A.innerHTML=`${hero()}<div class="page"><div class="quickRow"><div class="quickCard"><div class="quickValue" style="color:var(--blue)">3</div><div class="quickLabel">${t('new')}</div></div><div class="quickCard"><div class="quickValue" style="color:var(--red)">2</div><div class="quickLabel">${t('needs')}</div></div><div class="quickCard"><div class="quickValue">4</div><div class="quickLabel">${t('overdue')}</div></div><div class="quickCard"><div class="quickValue">${P.length}</div><div class="quickLabel">${t('patients')}</div></div></div><div class="sectionRow"><div class="sectionTitle">${t('recent')}</div><button class="sectionAction" onclick="screen='patients';render()">${t('viewAll')}</button></div>${P.map(pCard).join('')}<div class="footer">UI Prototype — no real patient data</div></div>${nav()}`}
+function patientList(){let list=[...P];if(sortMode==='az')list.sort((a,b)=>pn(a).localeCompare(pn(b),lang));A.innerHTML=`${hero()}<div class="page"><input id="q" class="search" placeholder="${t('search')}" oninput="filterP()"><div class="segment"><button class="${sortMode==='recent'?'active':''}" onclick="sortMode='recent';render()">${t('recentTab')}</button><button class="${sortMode==='az'?'active':''}" onclick="sortMode='az';render()">${t('az')}</button></div><div id="plist">${list.map(p=>pCard(p,P.indexOf(p))).join('')}</div></div>${nav()}`}
+function filterP(){let q=(document.getElementById('q').value||'').toLowerCase();document.getElementById('plist').innerHTML=P.filter(p=>pn(p).toLowerCase().includes(q)).map(p=>pCard(p,P.indexOf(p))).join('')}
+function backBar(title,sub=''){return `<div class="backBar"><button class="backBtn" onclick="screen='home';render()">‹</button><div><div class="eyebrow" style="color:var(--blue)">${sub}</div><div class="backTitle">${title}</div></div></div>`}
+function doseGrid(a){let d=L[lang].dir==='rtl'?['ش','ی','د','س','چ','پ','ج']:['Sa','Su','Mo','Tu','We','Th','Fr'];return `<div class="card doses">${d.map((x,i)=>`<div class="dose"><small>${x}</small><b>${f(a[i])}</b></div>`).join('')}</div>`}
+function profile(){let p=P[selected],s=stat(p),pts=p.hist.map((v,i)=>`${25+i*85},${118-(v-1.5)*31}`).join(' ');A.innerHTML=`<div class="page">${backBar(pn(p),t('patients'))}<div class="infoGrid"><div class="infoCard"><div class="infoLabel">${t('target')}</div><div class="infoValue">${p.min}–${p.max}</div></div><div class="infoCard"><div class="infoLabel">${t('weekly')}</div><div class="infoValue">${f(wk(p.doses))} mg</div></div></div><div style="height:10px"></div><div class="bigINR" style="background:${s[2]}"><div class="infoLabel">${t('new')}</div><div class="num" style="color:${s[1]}">${p.inr.toFixed(1)}</div><div class="state" style="color:${s[1]}">${s[0]}</div></div><div class="sectionRow"><div class="sectionTitle">${t('history')}</div></div><div class="chartCard"><svg class="chart" viewBox="0 0 300 135"><line x1="15" y1="28" x2="290" y2="28" stroke="#edf1f5"/><line x1="15" y1="68" x2="290" y2="68" stroke="#edf1f5"/><line x1="15" y1="108" x2="290" y2="108" stroke="#edf1f5"/><polyline points="${pts}" fill="none" stroke="#2f7ee6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${p.hist.map((v,i)=>`<circle cx="${25+i*85}" cy="${118-(v-1.5)*31}" r="5" fill="#fff" stroke="#2f7ee6" stroke-width="3"/>`).join('')}</svg></div><div class="sectionRow"><div class="sectionTitle">${t('weekly')}</div></div>${doseGrid(p.doses)}<button class="btn" onclick="tmp=[...P[selected].doses];screen='review';render()">${t('review')}</button></div>`}
+function review(){A.innerHTML=`<div class="page">${backBar(t('review'),pn(P[selected]))}<div class="notice">Prototype only — physician review required before any real dosing decision.</div><div class="sectionRow"><div class="sectionTitle">${t('clinical')}</div></div><div class="card">${['Bleeding','Missed dose','New medication','Antibiotic','Acute illness','Diet change'].map(x=>`<div class="checkRow" onclick="let c=this.querySelector('.check');c.classList.toggle('on');c.textContent=c.classList.contains('on')?'✓':''"><div class="check"></div><div>${x}</div></div>`).join('')}</div><div class="sectionRow"><div class="sectionTitle">${t('weekly')}</div></div><div class="card" id="steps"></div><button class="btn" onclick="P[selected].doses=[...tmp];screen='profile';render()">${t('save')}</button></div>`;steps()}
+function steps(){document.getElementById('steps').innerHTML=tmp.map((v,i)=>`<div class="stepRow"><span>Day ${i+1}</span><div class="stepper"><button onclick="adj(${i},-.5)">−</button><span>${f(v)} mg</span><button onclick="adj(${i},.5)">+</button></div></div>`).join('')+`<div class="stepRow"><strong>${t('weekly')}</strong><strong>${f(wk(tmp))} mg</strong></div>`}
+function adj(i,d){tmp[i]=Math.max(0,Math.round((tmp[i]+d)*2)/2);steps()}
+function patientHome(){let p=P[0],s=stat(p);A.innerHTML=`${hero()}<div class="page"><div class="patientWelcome"><div class="pName">${pn(p)}</div><div class="pMeta">${t('target')}: ${p.min}–${p.max}</div></div><div style="height:12px"></div><div class="bigINR" style="background:${s[2]}"><div class="infoLabel">${t('new')}</div><div class="num" style="color:${s[1]}">${p.inr.toFixed(1)}</div><div class="state" style="color:${s[1]}">${s[0]}</div></div><div class="sectionRow"><div class="sectionTitle">${t('todayDose')}</div></div><div class="card"><div class="todayDose">${f(p.doses[0])} mg</div><div class="pMeta">${t('next')}: 7 days</div></div><button class="btn">${t('register')}</button><div class="sectionRow"><div class="sectionTitle">${t('weekly')}</div></div>${doseGrid(p.doses)}</div>${nav()}`}
+function more(){A.innerHTML=`${hero()}<div class="page"><div class="card">${[['fa','فارسی'],['en','English'],['ar','العربية'],['de','Deutsch']].map(([c,n])=>`<div class="langItem ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div></div>${nav()}`}
+function render(){document.documentElement.dir=L[lang].dir;document.documentElement.lang=lang;if(screen==='profile')return profile();if(screen==='review')return review();if(role==='patient'){if(screen==='home')return patientHome();return more()}if(screen==='patients'||screen==='new')return patientList();if(screen==='more')return more();return doctorHome()}
+render();
+</script>
+</body>
+</html>
