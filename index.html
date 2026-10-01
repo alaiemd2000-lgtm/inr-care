@@ -4,120 +4,145 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#f4f7fb">
-<title>INR Care</title>
+<meta name="theme-color" content="#f5f7fb">
+<title>INR Care UI Prototype</title>
 <style>
 :root{
-  --bg:#f3f6fb;--card:#fff;--text:#182235;--muted:#7b8494;--line:#e7ebf1;
-  --blue:#1769d2;--blue2:#3c86e9;--green:#1b9a62;--orange:#ef7e35;--red:#e33c4f;
-  --shadow:0 10px 28px rgba(31,55,88,.07);--r:22px
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#182235;
+  --muted:#7a8495;
+  --line:#e6ebf2;
+  --blue:#155fc4;
+  --blue2:#2e83e8;
+  --blueSoft:#edf4fd;
+  --green:#1b9a62;
+  --greenSoft:#ecf8f2;
+  --orange:#e97832;
+  --orangeSoft:#fff3eb;
+  --red:#d93c52;
+  --redSoft:#fff0f3;
+  --shadow:0 14px 34px rgba(22,42,72,.08);
+  --radius:22px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+html,body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text)}
 body{min-height:100vh}
-button,input,select{font:inherit}
-#app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:92px}
+button,input{font:inherit}
+#app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:94px}
 .page{padding:18px 18px 30px}
-.topbar{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;color:white;font-weight:900;box-shadow:var(--shadow)}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.brand{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;box-shadow:0 10px 22px rgba(21,95,196,.22)}
 .titleWrap{flex:1}
-.kicker{font-size:12px;font-weight:800;color:var(--blue);margin-bottom:4px}
-h1{margin:0;font-size:28px;line-height:1.1}
+.eyebrow{color:var(--blue);font-size:12px;font-weight:800;margin-bottom:3px}
+h1{font-size:27px;line-height:1.15;margin:0;font-weight:900}
 .sub{font-size:13px;color:var(--muted);margin-top:4px}
-.iconBtn{width:46px;height:46px;border:1px solid var(--line);background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.iconBtn{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);font-size:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:12px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.metric{min-height:112px;display:flex;flex-direction:column;justify-content:space-between}
-.metricLabel{font-size:14px;color:var(--muted)}
-.metricValue{font-size:32px;font-weight:900}
-.section{font-size:19px;font-weight:900;margin:22px 0 10px}
-.row{display:flex;gap:10px;align-items:center}.grow{flex:1}
+.metric{min-height:108px;display:flex;flex-direction:column;justify-content:space-between}
+.metricLabel{color:var(--muted);font-size:13px}
+.metricValue{font-size:31px;font-weight:900}
+.metricFoot{font-size:11px;color:var(--muted)}
+.sectionRow{display:flex;align-items:center;justify-content:space-between;margin:22px 0 10px}
+.sectionTitle{font-weight:900;font-size:18px}
+.linkBtn{border:0;background:transparent;color:var(--blue);font-weight:800}
+.patient{display:flex;align-items:center;gap:13px}
+.avatar{width:50px;height:50px;border-radius:16px;background:var(--blueSoft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
+.patientMain{flex:1;min-width:0}.patientName{font-weight:900;font-size:16px}.patientMeta{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+.inrChip{min-width:80px;text-align:center;padding:10px 8px;border-radius:16px;border:1px solid}
+.inrChip b{display:block;font-size:23px}.inrChip small{font-size:9px;font-weight:900}
 .btn{width:100%;border:0;border-radius:16px;padding:14px 16px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:900}
 .btn.out{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
-.btn.soft{background:#edf4fd;color:var(--blue)}
-.patient{display:flex;align-items:center;gap:14px}
-.avatar{width:50px;height:50px;border-radius:16px;background:#edf3fb;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--blue)}
-.patientMain{flex:1}.patientName{font-size:17px;font-weight:900}.patientMeta{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
-.inrChip{min-width:82px;padding:10px;border-radius:18px;border:1px solid;text-align:center}
-.inrChip b{display:block;font-size:24px}.inrChip small{font-size:10px;font-weight:800}
-.tabs{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
-.tabs button{flex:1;border:0;background:transparent;padding:10px 8px;border-radius:13px;color:var(--muted);font-weight:800}
-.tabs button.active{background:#fff;color:var(--blue);box-shadow:0 4px 16px rgba(31,55,88,.06)}
-.inp{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 15px;margin-bottom:12px;color:var(--text)}
-.hero{text-align:center;padding:24px 16px}
-.heroLabel{color:var(--muted);font-size:13px}
-.heroValue{font-size:58px;font-weight:900;margin:6px 0}
-.heroState{font-weight:900}
-.heroTarget{color:var(--muted);font-size:12px;margin-top:6px}
-.line{display:flex;justify-content:space-between;gap:12px;padding:8px 0}.lineLabel{color:var(--muted)}.lineValue{font-weight:800}
+.btn.soft{background:var(--blueSoft);color:var(--blue)}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}
+.search{width:100%;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px;color:var(--text);margin-bottom:12px}
+.segment{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
+.segment button{flex:1;border:0;background:transparent;border-radius:13px;padding:10px;color:var(--muted);font-weight:800}
+.segment button.active{background:white;color:var(--blue);box-shadow:0 4px 16px rgba(31,55,88,.06)}
+.back{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:27px}
+.infoLine{display:flex;justify-content:space-between;gap:12px;padding:8px 0}
+.infoLabel{color:var(--muted)}.infoValue{font-weight:800;text-align:left}
+.hero{padding:22px 16px;text-align:center}
+.heroLabel{color:var(--muted);font-size:12px}
+.heroValue{font-size:58px;font-weight:900;margin:5px 0}
+.heroState{font-weight:900}.heroTarget{font-size:12px;color:var(--muted);margin-top:6px}
 .doses{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.dose{background:#f6f8fb;border-radius:12px;padding:9px 2px;text-align:center}.dose small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}.dose b{font-size:13px}
-.langPanel{display:none}.langPanel.show{display:block}
-.langRow{display:flex;justify-content:space-between;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
-.langRow:last-child{border-bottom:0}.langRow.active{color:var(--blue);font-weight:900}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:5}
-.nav button{flex:1;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;padding:4px}.nav .nicon{font-size:20px;display:block;margin-bottom:3px}.nav button.active{color:var(--blue)}
-.roleBar{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
-.roleBar button{flex:1;border:0;background:transparent;border-radius:13px;padding:10px;font-weight:800;color:var(--muted)}
-.roleBar button.active{background:#fff;color:var(--blue)}
-.notice{background:#fff8e8;border:1px solid #f4df9f;border-radius:16px;padding:12px;color:#7b5a10;font-size:12px;line-height:1.7}
-.back{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:25px}
-.stepper{display:flex;align-items:center;gap:8px}.stepper button{width:34px;height:34px;border:0;border-radius:10px;background:#edf4fd;color:var(--blue);font-size:19px;font-weight:900}.stepper span{min-width:70px;text-align:center;font-weight:900}
-.statusDot{width:9px;height:9px;border-radius:50%}
-.footerNote{font-size:11px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6}
-@media (max-width:390px){.metricValue{font-size:29px}.patientName{font-size:16px}.inrChip{min-width:76px}}
+.dose{background:#f7f9fc;border-radius:12px;padding:10px 2px;text-align:center}
+.dose small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}.dose b{font-size:13px}
+.chartWrap{padding-top:8px}
+.chart{width:100%;height:130px}
+.chartLabels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:2px}
+.alert{border-radius:16px;padding:12px 13px;background:#fff8e8;border:1px solid #f2dc98;color:#795a14;font-size:12px;line-height:1.65}
+.checkList{display:grid;gap:8px}
+.checkRow{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.checkRow:last-child{border-bottom:0}
+.fakeCheck{width:22px;height:22px;border-radius:7px;border:1.5px solid #b6c0cd;background:#fff;display:flex;align-items:center;justify-content:center}
+.fakeCheck.on{background:var(--blue);border-color:var(--blue);color:white}
+.stepRow{display:flex;align-items:center;justify-content:space-between}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper button{width:34px;height:34px;border:0;border-radius:10px;background:var(--blueSoft);color:var(--blue);font-size:19px;font-weight:900}
+.stepper span{min-width:70px;text-align:center;font-weight:900}
+.patientHero{background:linear-gradient(145deg,#ffffff,#f4f8fd)}
+.todayDose{font-size:38px;font-weight:900;color:var(--blue);margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800}
+.pill.green{background:var(--greenSoft);color:var(--green)}.pill.orange{background:var(--orangeSoft);color:var(--orange)}.pill.red{background:var(--redSoft);color:var(--red)}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:10}
+.nav button{flex:1;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;padding:4px}
+.nav .navIcon{font-size:20px;display:block;margin-bottom:3px}.nav button.active{color:var(--blue)}
+.roleSwitch{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
+.roleSwitch button{flex:1;border:0;background:transparent;padding:10px;border-radius:13px;color:var(--muted);font-weight:800}
+.roleSwitch button.active{background:#fff;color:var(--blue)}
+.langMenu{display:none}.langMenu.show{display:block}
+.langItem{display:flex;justify-content:space-between;padding:11px 4px;border-bottom:1px solid var(--line)}
+.langItem:last-child{border-bottom:0}.langItem.active{color:var(--blue);font-weight:900}
+.footerNote{text-align:center;color:var(--muted);font-size:11px;line-height:1.6;margin-top:18px}
+@media(max-width:390px){.metricValue{font-size:28px}.heroValue{font-size:52px}.inrChip{min-width:74px}}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
-const T={
-fa:{dir:'rtl',doctorPanel:'پنل مدیریت INR',patientPanel:'پنل بیمار',doctorName:'دکتر احمدی',newInr:'INR جدید',needsAction:'نیازمند اقدام',patients:'بیماران',messages:'پیام‌ها',recent:'بیماران اخیر',home:'خانه',more:'بیشتر',history:'تاریخچه',target:'هدف INR',weekly:'دوز هفتگی',review:'بررسی و تنظیم دوز',doctor:'پزشک',patient:'بیمار',language:'زبان',selectLang:'انتخاب زبان',doseToday:'دوز امروز',nextInr:'INR بعدی',register:'ثبت INR جدید',search:'جستجو نام یا موبایل',addPatient:'بیمار جدید',demo:'نسخه آزمایشی رابط کاربری',high:'بالاتر از هدف',low:'پایین‌تر از هدف',ok:'در محدوده هدف',urgent:'بررسی فوری',new:'جدید',reviewed:'بررسی شده',save:'ذخیره',back:'بازگشت'},
-en:{dir:'ltr',doctorPanel:'INR Management',patientPanel:'Patient Portal',doctorName:'Dr. Ahmadi',newInr:'New INR',needsAction:'Needs Action',patients:'Patients',messages:'Messages',recent:'Recent Patients',home:'Home',more:'More',history:'History',target:'INR Target',weekly:'Weekly Dose',review:'Review & Adjust Dose',doctor:'Doctor',patient:'Patient',language:'Language',selectLang:'Choose language',doseToday:'Today’s dose',nextInr:'Next INR',register:'Add new INR',search:'Search name or phone',addPatient:'Add patient',demo:'UI preview version',high:'Above target',low:'Below target',ok:'In target range',urgent:'Urgent review',new:'New',reviewed:'Reviewed',save:'Save',back:'Back'},
-ar:{dir:'rtl',doctorPanel:'إدارة INR',patientPanel:'بوابة المريض',doctorName:'د. أحمدي',newInr:'INR جديد',needsAction:'يحتاج إجراء',patients:'المرضى',messages:'الرسائل',recent:'المرضى الأخيرون',home:'الرئيسية',more:'المزيد',history:'السجل',target:'هدف INR',weekly:'الجرعة الأسبوعية',review:'مراجعة الجرعة',doctor:'طبيب',patient:'مريض',language:'اللغة',selectLang:'اختر اللغة',doseToday:'جرعة اليوم',nextInr:'INR القادم',register:'إضافة INR',search:'بحث بالاسم أو الهاتف',addPatient:'إضافة مريض',demo:'نسخة تجريبية للواجهة',high:'أعلى من الهدف',low:'أقل من الهدف',ok:'ضمن الهدف',urgent:'مراجعة عاجلة',new:'جديد',reviewed:'تمت المراجعة',save:'حفظ',back:'رجوع'},
-tr:{dir:'ltr',doctorPanel:'INR Yönetimi',patientPanel:'Hasta Portalı',doctorName:'Dr. Ahmadi',newInr:'Yeni INR',needsAction:'İşlem Gerekli',patients:'Hastalar',messages:'Mesajlar',recent:'Son Hastalar',home:'Ana Sayfa',more:'Daha Fazla',history:'Geçmiş',target:'INR Hedefi',weekly:'Haftalık Doz',review:'Dozu Gözden Geçir',doctor:'Doktor',patient:'Hasta',language:'Dil',selectLang:'Dil seçin',doseToday:'Bugünkü doz',nextInr:'Sonraki INR',register:'Yeni INR ekle',search:'İsim veya telefon ara',addPatient:'Hasta ekle',demo:'Arayüz önizleme',high:'Hedef üstü',low:'Hedef altı',ok:'Hedef aralığında',urgent:'Acil inceleme',new:'Yeni',reviewed:'İncelendi',save:'Kaydet',back:'Geri'},
-fr:{dir:'ltr',doctorPanel:'Gestion de l’INR',patientPanel:'Espace patient',doctorName:'Dr Ahmadi',newInr:'Nouvel INR',needsAction:'Action requise',patients:'Patients',messages:'Messages',recent:'Patients récents',home:'Accueil',more:'Plus',history:'Historique',target:'Cible INR',weekly:'Dose hebdomadaire',review:'Réviser la dose',doctor:'Médecin',patient:'Patient',language:'Langue',selectLang:'Choisir la langue',doseToday:'Dose du jour',nextInr:'Prochain INR',register:'Ajouter un INR',search:'Rechercher nom ou téléphone',addPatient:'Ajouter un patient',demo:'Aperçu de l’interface',high:'Au-dessus de la cible',low:'Sous la cible',ok:'Dans la cible',urgent:'Révision urgente',new:'Nouveau',reviewed:'Révisé',save:'Enregistrer',back:'Retour'},
-de:{dir:'ltr',doctorPanel:'INR-Verwaltung',patientPanel:'Patientenportal',doctorName:'Dr. Ahmadi',newInr:'Neuer INR',needsAction:'Handlungsbedarf',patients:'Patienten',messages:'Nachrichten',recent:'Letzte Patienten',home:'Start',more:'Mehr',history:'Verlauf',target:'INR-Ziel',weekly:'Wochendosis',review:'Dosis prüfen',doctor:'Arzt',patient:'Patient',language:'Sprache',selectLang:'Sprache wählen',doseToday:'Heutige Dosis',nextInr:'Nächster INR',register:'INR hinzufügen',search:'Name oder Telefon suchen',addPatient:'Patient hinzufügen',demo:'UI-Vorschau',high:'Über Zielbereich',low:'Unter Zielbereich',ok:'Im Zielbereich',urgent:'Dringend prüfen',new:'Neu',reviewed:'Geprüft',save:'Speichern',back:'Zurück'}
+const langs={
+fa:{dir:'rtl',doctorHome:'پنل پزشک',patientHome:'پنل بیمار',patients:'بیماران',newInr:'INR جدید',needs:'نیازمند اقدام',overdue:'موعد گذشته',messages:'پیام‌ها',recent:'بیماران اخیر',search:'جستجو با نام یا موبایل',recentTab:'اخیر',alpha:'الفبایی',target:'هدف INR',weekly:'دوز هفتگی',history:'تاریخچه INR',review:'بررسی INR',currentDose:'برنامه فعلی وارفارین',clinical:'عوامل بالینی',save:'تأیید و ثبت',today:'دوز امروز',next:'INR بعدی',register:'ثبت INR جدید',doctor:'پزشک',patient:'بیمار',home:'خانه',more:'بیشتر',high:'بالاتر از هدف',low:'پایین‌تر از هدف',ok:'در محدوده هدف',urgent:'نیازمند بررسی فوری',demo:'Prototype رابط کاربری — بدون استفاده درمانی واقعی'},
+en:{dir:'ltr',doctorHome:'Doctor Dashboard',patientHome:'Patient Portal',patients:'Patients',newInr:'New INR',needs:'Needs action',overdue:'Overdue',messages:'Messages',recent:'Recent patients',search:'Search name or phone',recentTab:'Recent',alpha:'A–Z',target:'INR target',weekly:'Weekly dose',history:'INR history',review:'Review INR',currentDose:'Current warfarin plan',clinical:'Clinical factors',save:'Approve & save',today:'Today’s dose',next:'Next INR',register:'Add new INR',doctor:'Doctor',patient:'Patient',home:'Home',more:'More',high:'Above target',low:'Below target',ok:'In target range',urgent:'Urgent review',demo:'UI prototype — not for real clinical use'},
+ar:{dir:'rtl',doctorHome:'لوحة الطبيب',patientHome:'بوابة المريض',patients:'المرضى',newInr:'INR جديد',needs:'يحتاج إجراء',overdue:'متأخر',messages:'الرسائل',recent:'المرضى الأخيرون',search:'بحث بالاسم أو الهاتف',recentTab:'الأحدث',alpha:'أبجدي',target:'هدف INR',weekly:'الجرعة الأسبوعية',history:'سجل INR',review:'مراجعة INR',currentDose:'خطة الوارفارين الحالية',clinical:'العوامل السريرية',save:'تأكيد وحفظ',today:'جرعة اليوم',next:'INR القادم',register:'إضافة INR',doctor:'طبيب',patient:'مريض',home:'الرئيسية',more:'المزيد',high:'أعلى من الهدف',low:'أقل من الهدف',ok:'ضمن الهدف',urgent:'مراجعة عاجلة',demo:'نموذج واجهة فقط — ليس للاستخدام السريري'},
+de:{dir:'ltr',doctorHome:'Arzt-Dashboard',patientHome:'Patientenportal',patients:'Patienten',newInr:'Neuer INR',needs:'Handlungsbedarf',overdue:'Überfällig',messages:'Nachrichten',recent:'Letzte Patienten',search:'Name oder Telefon suchen',recentTab:'Zuletzt',alpha:'A–Z',target:'INR-Ziel',weekly:'Wochendosis',history:'INR-Verlauf',review:'INR prüfen',currentDose:'Aktueller Warfarin-Plan',clinical:'Klinische Faktoren',save:'Bestätigen & speichern',today:'Heutige Dosis',next:'Nächster INR',register:'INR hinzufügen',doctor:'Arzt',patient:'Patient',home:'Start',more:'Mehr',high:'Über Ziel',low:'Unter Ziel',ok:'Im Zielbereich',urgent:'Dringend prüfen',demo:'UI-Prototyp — nicht für echte Behandlung'}
 };
-const langs=[['fa','فارسی'],['en','English'],['ar','العربية'],['tr','Türkçe'],['fr','Français'],['de','Deutsch']];
-const seed={role:'doctor',patients:[
-{id:1,name:{fa:'علی رضایی',ar:'علي رضائي',default:'Ali Rezaei'},mobile:'09123456789',indication:{fa:'دریچه مکانیکی میترال',ar:'صمام ميترالي ميكانيكي',default:'Mechanical mitral valve'},min:2.5,max:3.5,doses:[5,5,2.5,5,5,5,2.5],history:[{v:4.1,date:'1405/07/09',reviewed:false}]},
-{id:2,name:{fa:'مریم احمدی',ar:'مريم أحمدي',default:'Maryam Ahmadi'},mobile:'09351112299',indication:{fa:'فیبریلاسیون دهلیزی',ar:'رجفان أذيني',default:'Atrial fibrillation'},min:2,max:3,doses:[2.5,5,2.5,5,2.5,5,2.5],history:[{v:2.6,date:'1405/07/09',reviewed:false}]},
-{id:3,name:{fa:'حسن کریمی',ar:'حسن كريمي',default:'Hasan Karimi'},mobile:'09195007766',indication:{fa:'VTE',ar:'VTE',default:'VTE'},min:2,max:3,doses:[5,5,5,2.5,5,5,2.5],history:[{v:1.7,date:'1405/07/08',reviewed:false}]}
-],messages:1,currentPatientId:1};
-let S=JSON.parse(localStorage.getItem('inrCareModern')||'null')||structuredClone(seed);
-let lang=localStorage.getItem('inrLang')||((navigator.language||'en').slice(0,2)); if(!T[lang])lang='en';
-let tab='home',route={name:'root'},tmp=[];
+const names={fa:['علی رضایی','مریم احمدی','حسن کریمی'],ar:['علي رضائي','مريم أحمدي','حسن كريمي'],en:['Ali Rezaei','Maryam Ahmadi','Hasan Karimi'],de:['Ali Rezaei','Maryam Ahmadi','Hasan Karimi']};
+let lang='fa',role='doctor',screen='doctorHome',selected=0,sortMode='recent';
+let patients=[
+{nameKey:0,ind:'Mechanical mitral valve',min:2.5,max:3.5,inr:4.1,doses:[5,5,2.5,5,5,5,2.5],hist:[2.7,3.1,3.6,4.1]},
+{nameKey:1,ind:'Atrial fibrillation',min:2,max:3,inr:2.6,doses:[2.5,5,2.5,5,2.5,5,2.5],hist:[2.4,2.7,2.5,2.6]},
+{nameKey:2,ind:'VTE',min:2,max:3,inr:1.7,doses:[5,5,5,2.5,5,5,2.5],hist:[2.4,2.2,2.1,1.7]}
+];
+let tmpDoses=[];
 const A=document.getElementById('app');
-function tr(k){return T[lang][k]||T.en[k]||k}
-function setLang(l){lang=l;localStorage.setItem('inrLang',l);document.documentElement.dir=T[l].dir;render()}
-function nm(p){return p.name[lang]||p.name.default}
-function ind(p){return p.indication[lang]||p.indication.default}
-function latest(p){return p.history[0]||null}
-function wk(a){return a.reduce((x,y)=>x+(+y||0),0)}
-function fd(n){return Number.isInteger(+n)?String(+n):(+n).toFixed(1)}
-function state(p){let l=latest(p);if(!l)return['—','#8490a3'];if(l.v>=5||l.v<=1.3)return[tr('urgent'),'#e33c4f'];if(l.v<p.min)return[tr('low'),'#f59e0b'];if(l.v>p.max)return[tr('high'),'#ef7e35'];return[tr('ok'),'#1b9a62']}
-function save(){localStorage.setItem('inrCareModern',JSON.stringify(S))}
-function header(title,subtitle='',back=false){return `<div class="topbar">${back?`<button class="back" onclick="root()">‹</button>`:`<div class="logo">INR</div>`}<div class="titleWrap"><div class="kicker">${subtitle}</div><h1>${title}</h1></div><button class="iconBtn" onclick="toggleLang()">🌐</button></div>${langPanel()}`}
-function langPanel(){return `<div id="langPanel" class="card langPanel"><div class="section" style="margin-top:0">${tr('selectLang')}</div>${langs.map(([c,n])=>`<div class="langRow ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div>`}
-function toggleLang(){document.getElementById('langPanel')?.classList.toggle('show')}
-function roleBar(){return `<div class="roleBar"><button class="${S.role==='doctor'?'active':''}" onclick="S.role='doctor';save();tab='home';render()">${tr('doctor')}</button><button class="${S.role==='patient'?'active':''}" onclick="S.role='patient';save();tab='home';render()">${tr('patient')}</button></div>`}
-function nav(items){return `<div class="nav">${items.map(([k,ic,lb])=>`<button class="${tab===k?'active':''}" onclick="tab='${k}';render()"><span class="nicon">${ic}</span>${lb}</button>`).join('')}</div>`}
-function patientCard(p){let l=latest(p),st=state(p);return `<div class="card patient" onclick="route={name:'profile',id:${p.id}};render()"><div class="avatar">${nm(p).trim().charAt(0)}</div><div class="patientMain"><div class="patientName">${nm(p)}</div><div class="patientMeta">${ind(p)}<br>${tr('target')}: ${p.min}–${p.max}</div></div><div class="inrChip" style="color:${st[1]};border-color:${st[1]}55;background:${st[1]}12"><b>${l?l.v.toFixed(1):'—'}</b><small>${st[0]}</small></div></div>`}
-function doseGrid(a){let ds=T[lang].dir==='rtl'?['ش','ی','د','س','چ','پ','ج']:['Sa','Su','Mo','Tu','We','Th','Fr'];return `<div class="card doses">${ds.map((d,i)=>`<div class="dose"><small>${d}</small><b>${fd(a[i])}</b></div>`).join('')}</div>`}
-function doctorHome(){let un=S.patients.reduce((n,p)=>n+p.history.filter(x=>!x.reviewed).length,0),act=S.patients.filter(p=>state(p)[1]!=='#1b9a62').length;A.innerHTML=`<div class="page">${header(tr('doctorName'),tr('doctorPanel'))}${roleBar()}<div class="grid"><div class="card metric"><div class="metricLabel">${tr('newInr')}</div><div class="metricValue" style="color:var(--blue)">${un}</div></div><div class="card metric"><div class="metricLabel">${tr('needsAction')}</div><div class="metricValue" style="color:var(--red)">${act}</div></div><div class="card metric"><div class="metricLabel">${tr('patients')}</div><div class="metricValue">${S.patients.length}</div></div><div class="card metric"><div class="metricLabel">${tr('messages')}</div><div class="metricValue">${S.messages}</div></div></div><div class="section">${tr('recent')}</div>${S.patients.map(patientCard).join('')}<div class="footerNote">${tr('demo')}</div></div>${nav([['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]])}`}
-function patients(){A.innerHTML=`<div class="page">${header(tr('patients'),tr('doctorPanel'))}${roleBar()}<input class="inp" id="q" placeholder="${tr('search')}" oninput="filterP()"><div id="plist">${S.patients.map(patientCard).join('')}</div><button class="btn soft">${tr('addPatient')}</button></div>${nav([['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]])}`}
-function filterP(){let q=(document.getElementById('q').value||'').toLowerCase();document.getElementById('plist').innerHTML=S.patients.filter(p=>nm(p).toLowerCase().includes(q)||p.mobile.includes(q)).map(patientCard).join('')}
-function profile(id){let p=S.patients.find(x=>x.id===id),l=latest(p),st=state(p);A.innerHTML=`<div class="page">${header(nm(p),tr('patients'),true)}<div class="card"><div class="line"><span class="lineValue">${p.mobile}</span><span class="lineLabel">${tr('patients')}</span></div><div class="line"><span class="lineValue">${p.min}–${p.max}</span><span class="lineLabel">${tr('target')}</span></div><div class="line"><span class="lineValue">${fd(wk(p.doses))} mg</span><span class="lineLabel">${tr('weekly')}</span></div></div><div class="card hero" style="background:${st[1]}0f;border-color:${st[1]}38"><div class="heroLabel">${tr('newInr')}</div><div class="heroValue" style="color:${st[1]}">${l?l.v.toFixed(1):'—'}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div><div class="heroTarget">${tr('target')}: ${p.min}–${p.max}</div></div><div class="section">${tr('weekly')}</div>${doseGrid(p.doses)}<button class="btn" onclick="route={name:'review',id:${p.id}};render()">${tr('review')}</button></div>`}
-function review(id){let p=S.patients.find(x=>x.id===id);tmp=[...p.doses];A.innerHTML=`<div class="page">${header(tr('review'),nm(p),true)}<div class="notice">${tr('demo')}</div><div class="section">${tr('weekly')}</div><div id="doseEdit"></div><div class="card"><div class="line"><span id="sum" class="lineValue">${fd(wk(tmp))} mg</span><span class="lineLabel">${tr('weekly')}</span></div></div><button class="btn" onclick="approve(${id})">${tr('save')}</button></div>`;doseEdit()}
-function doseEdit(){let ds=['1','2','3','4','5','6','7'];document.getElementById('doseEdit').innerHTML=tmp.map((v,i)=>`<div class="card line"><div class="stepper"><button onclick="adj(${i},-.5)">−</button><span>${fd(v)} mg</span><button onclick="adj(${i},.5)">+</button></div><span class="lineLabel">${ds[i]}</span></div>`).join('');document.getElementById('sum').textContent=fd(wk(tmp))+' mg'}
-function adj(i,d){tmp[i]=Math.max(0,Math.round((tmp[i]+d)*2)/2);doseEdit()}
-function approve(id){let p=S.patients.find(x=>x.id===id);p.doses=[...tmp];if(p.history[0])p.history[0].reviewed=true;save();route={name:'profile',id};render()}
-function patientHome(){let p=S.patients.find(x=>x.id===S.currentPatientId)||S.patients[0],l=latest(p),st=state(p);A.innerHTML=`<div class="page">${header(nm(p),tr('patientPanel'))}${roleBar()}<div class="card hero" style="background:${st[1]}0f;border-color:${st[1]}38"><div class="heroLabel">${tr('newInr')}</div><div class="heroValue" style="color:${st[1]}">${l?l.v.toFixed(1):'—'}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div><div class="heroTarget">${tr('target')}: ${p.min}–${p.max}</div></div><div class="card"><div class="line"><span class="lineValue">${fd(p.doses[0])} mg</span><span class="lineLabel">${tr('doseToday')}</span></div><div class="line"><span class="lineValue">—</span><span class="lineLabel">${tr('nextInr')}</span></div></div><button class="btn">${tr('register')}</button><div class="section">${tr('weekly')}</div>${doseGrid(p.doses)}</div>${nav([['home','⌂',tr('home')],['history','≋',tr('history')],['messages','✉',tr('messages')],['more','•••',tr('more')]])}`}
-function more(){A.innerHTML=`<div class="page">${header(tr('more'),tr('language'))}${roleBar()}<div class="card">${langs.map(([c,n])=>`<div class="langRow ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div></div>${nav(S.role==='doctor'?[['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]]:[['home','⌂',tr('home')],['history','≋',tr('history')],['messages','✉',tr('messages')],['more','•••',tr('more')]])}`}
-function root(){route={name:'root'};render()}
-function render(){document.documentElement.dir=T[lang].dir;document.documentElement.lang=lang;if(route.name==='profile')return profile(route.id);if(route.name==='review')return review(route.id);if(S.role==='doctor'){if(tab==='home')return doctorHome();if(tab==='patients')return patients();return more()}else{if(tab==='home')return patientHome();return more()}}
+function t(k){return langs[lang][k]||k}
+function pname(p){return names[lang]?.[p.nameKey]||names.en[p.nameKey]}
+function status(p){if(p.inr>=5||p.inr<=1.3)return[t('urgent'),'var(--red)','var(--redSoft)'];if(p.inr<p.min)return[t('low'),'var(--orange)','var(--orangeSoft)'];if(p.inr>p.max)return[t('high'),'var(--orange)','var(--orangeSoft)'];return[t('ok'),'var(--green)','var(--greenSoft)']}
+function weekly(a){return a.reduce((x,y)=>x+y,0)}
+function fmt(n){return Number.isInteger(n)?String(n):n.toFixed(1)}
+function setLang(l){lang=l;document.documentElement.dir=langs[l].dir;document.documentElement.lang=l;render()}
+function toggleLang(){document.querySelector('.langMenu')?.classList.toggle('show')}
+function header(title,subtitle,back=false){return `<div class="topbar">${back?`<button class="back" onclick="goBack()">‹</button>`:`<div class="brand">INR</div>`}<div class="titleWrap"><div class="eyebrow">${subtitle}</div><h1>${title}</h1></div><button class="iconBtn" onclick="toggleLang()">🌐</button></div>${langMenu()}`}
+function langMenu(){return `<div class="card langMenu">${[['fa','فارسی'],['en','English'],['ar','العربية'],['de','Deutsch']].map(([c,n])=>`<div class="langItem ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div>`}
+function roleSwitch(){return `<div class="roleSwitch"><button class="${role==='doctor'?'active':''}" onclick="role='doctor';screen='doctorHome';render()">${t('doctor')}</button><button class="${role==='patient'?'active':''}" onclick="role='patient';screen='patientHome';render()">${t('patient')}</button></div>`}
+function nav(){let items=role==='doctor'?[['doctorHome','⌂',t('home')],['patients','👥',t('patients')],['new','●',t('newInr')],['more','•••',t('more')]]:[['patientHome','⌂',t('home')],['patientHistory','≋',t('history')],['patientMessages','✉',t('messages')],['more','•••',t('more')]];return `<div class="nav">${items.map(([s,i,l])=>`<button class="${screen===s?'active':''}" onclick="screen='${s}';render()"><span class="navIcon">${i}</span>${l}</button>`).join('')}</div>`}
+function patientCard(p,i){let st=status(p);return `<div class="card patient" onclick="selected=${i};screen='profile';render()"><div class="avatar">${pname(p).charAt(0)}</div><div class="patientMain"><div class="patientName">${pname(p)}</div><div class="patientMeta">${p.ind}<br>${t('target')}: ${p.min}–${p.max}</div></div><div class="inrChip" style="color:${st[1]};border-color:${st[1]};background:${st[2]}"><b>${p.inr.toFixed(1)}</b><small>${st[0]}</small></div></div>`}
+function doseGrid(a){let d=langs[lang].dir==='rtl'?['ش','ی','د','س','چ','پ','ج']:['Sa','Su','Mo','Tu','We','Th','Fr'];return `<div class="card doses">${d.map((x,i)=>`<div class="dose"><small>${x}</small><b>${fmt(a[i])}</b></div>`).join('')}</div>`}
+function doctorHome(){A.innerHTML=`<div class="page">${header('INR Care',t('doctorHome'))}${roleSwitch()}<div class="grid"><div class="card metric"><div class="metricLabel">${t('newInr')}</div><div class="metricValue" style="color:var(--blue)">3</div><div class="metricFoot">+2 today</div></div><div class="card metric"><div class="metricLabel">${t('needs')}</div><div class="metricValue" style="color:var(--red)">2</div><div class="metricFoot">priority review</div></div><div class="card metric"><div class="metricLabel">${t('overdue')}</div><div class="metricValue">4</div><div class="metricFoot">follow-up</div></div><div class="card metric"><div class="metricLabel">${t('patients')}</div><div class="metricValue">${patients.length}</div><div class="metricFoot">active</div></div></div><div class="sectionRow"><div class="sectionTitle">${t('recent')}</div><button class="linkBtn" onclick="screen='patients';render()">›</button></div>${patients.map(patientCard).join('')}<div class="footerNote">${t('demo')}</div></div>${nav()}`}
+function patientsScreen(){let list=[...patients];if(sortMode==='alpha')list.sort((a,b)=>pname(a).localeCompare(pname(b),lang));A.innerHTML=`<div class="page">${header(t('patients'),t('doctorHome'))}${roleSwitch()}<input class="search" id="q" placeholder="${t('search')}" oninput="filterPatients()"><div class="segment"><button class="${sortMode==='recent'?'active':''}" onclick="sortMode='recent';patientsScreen()">${t('recentTab')}</button><button class="${sortMode==='alpha'?'active':''}" onclick="sortMode='alpha';patientsScreen()">${t('alpha')}</button></div><div id="plist">${list.map((p)=>patientCard(p,patients.indexOf(p))).join('')}</div></div>${nav()}`}
+function filterPatients(){let q=(document.getElementById('q').value||'').toLowerCase();document.getElementById('plist').innerHTML=patients.filter(p=>pname(p).toLowerCase().includes(q)).map((p)=>patientCard(p,patients.indexOf(p))).join('')}
+function profile(){let p=patients[selected],st=status(p);let pts=p.hist.map((v,i)=>`${30+i*80},${115-(v-1.5)*30}`).join(' ');A.innerHTML=`<div class="page">${header(pname(p),t('patients'),true)}<div class="card"><div class="infoLine"><span class="infoValue">${p.ind}</span><span class="infoLabel">${t('patients')}</span></div><div class="infoLine"><span class="infoValue">${p.min}–${p.max}</span><span class="infoLabel">${t('target')}</span></div><div class="infoLine"><span class="infoValue">${fmt(weekly(p.doses))} mg</span><span class="infoLabel">${t('weekly')}</span></div></div><div class="card hero" style="background:${st[2]};border-color:${st[1]}33"><div class="heroLabel">${t('newInr')}</div><div class="heroValue" style="color:${st[1]}">${p.inr.toFixed(1)}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div><div class="heroTarget">${t('target')}: ${p.min}–${p.max}</div></div><div class="sectionRow"><div class="sectionTitle">${t('history')}</div></div><div class="card chartWrap"><svg class="chart" viewBox="0 0 300 130"><line x1="18" y1="25" x2="290" y2="25" stroke="#edf1f5"/><line x1="18" y1="65" x2="290" y2="65" stroke="#edf1f5"/><line x1="18" y1="105" x2="290" y2="105" stroke="#edf1f5"/><polyline points="${pts}" fill="none" stroke="#1769d2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${p.hist.map((v,i)=>`<circle cx="${30+i*80}" cy="${115-(v-1.5)*30}" r="5" fill="#fff" stroke="#1769d2" stroke-width="3"/>`).join('')}</svg><div class="chartLabels"><span>1</span><span>2</span><span>3</span><span>4</span></div></div><div class="sectionRow"><div class="sectionTitle">${t('currentDose')}</div></div>${doseGrid(p.doses)}<button class="btn" onclick="tmpDoses=[...patients[selected].doses];screen='review';render()">${t('review')}</button></div>`}
+function review(){let p=patients[selected];A.innerHTML=`<div class="page">${header(t('review'),pname(p),true)}<div class="alert">${t('demo')}</div><div class="sectionRow"><div class="sectionTitle">${t('clinical')}</div></div><div class="card checkList">${['Bleeding','Wrong dose','New medication','Antibiotic','Acute illness','Diet change'].map((x,i)=>`<div class="checkRow" onclick="this.querySelector('.fakeCheck').classList.toggle('on');this.querySelector('.fakeCheck').textContent=this.querySelector('.fakeCheck').classList.contains('on')?'✓':''"><div class="fakeCheck"></div><div>${x}</div></div>`).join('')}</div><div class="sectionRow"><div class="sectionTitle">${t('weekly')}</div></div><div id="steps"></div><div class="card"><div class="infoLine"><span class="infoValue" id="sum">${fmt(weekly(tmpDoses))} mg</span><span class="infoLabel">${t('weekly')}</span></div></div><button class="btn" onclick="patients[selected].doses=[...tmpDoses];screen='profile';render()">${t('save')}</button></div>`;renderSteps()}
+function renderSteps(){document.getElementById('steps').innerHTML=tmpDoses.map((v,i)=>`<div class="card stepRow"><div>${i+1}</div><div class="stepper"><button onclick="adj(${i},-.5)">−</button><span>${fmt(v)} mg</span><button onclick="adj(${i},.5)">+</button></div></div>`).join('');document.getElementById('sum').textContent=fmt(weekly(tmpDoses))+' mg'}
+function adj(i,d){tmpDoses[i]=Math.max(0,Math.round((tmpDoses[i]+d)*2)/2);renderSteps()}
+function patientHome(){let p=patients[0],st=status(p);A.innerHTML=`<div class="page">${header('INR Care',t('patientHome'))}${roleSwitch()}<div class="card patientHero"><div class="patientName">${pname(p)}</div><div class="patientMeta">${t('target')}: ${p.min}–${p.max}</div></div><div class="card hero" style="background:${st[2]};border-color:${st[1]}33"><div class="heroLabel">${t('newInr')}</div><div class="heroValue" style="color:${st[1]}">${p.inr.toFixed(1)}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div></div><div class="card"><div class="infoLabel">${t('today')}</div><div class="todayDose">${fmt(p.doses[0])} mg</div><div class="infoLine"><span class="infoValue">7 days</span><span class="infoLabel">${t('next')}</span></div></div><button class="btn">${t('register')}</button><div class="sectionRow"><div class="sectionTitle">${t('currentDose')}</div></div>${doseGrid(p.doses)}<div class="footerNote">${t('demo')}</div></div>${nav()}`}
+function more(){A.innerHTML=`<div class="page">${header(t('more'),'Settings')}${roleSwitch()}<div class="card">${[['fa','فارسی'],['en','English'],['ar','العربية'],['de','Deutsch']].map(([c,n])=>`<div class="langItem ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div></div>${nav()}`}
+function goBack(){screen=role==='doctor'?'doctorHome':'patientHome';render()}
+function render(){document.documentElement.dir=langs[lang].dir;document.documentElement.lang=lang;if(screen==='profile')return profile();if(screen==='review')return review();if(screen==='patients')return patientsScreen();if(screen==='patientHome')return patientHome();if(screen==='more')return more();if(screen==='new')return patientsScreen();if(screen==='patientHistory')return profile();if(screen==='patientMessages')return more();return doctorHome()}
 render();
 </script>
-</body></html>
+</body>
+</html>
