@@ -5,106 +5,119 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#f5f7fb">
+<meta name="theme-color" content="#f4f7fb">
 <title>INR Care</title>
 <style>
-:root{--blue:#1769d2;--bg:#f5f7fb;--text:#172033;--muted:#6e7787;--green:#198754;--orange:#f59e0b;--red:#dc3545;--card:#fff;--border:#e6eaf0}
+:root{
+  --bg:#f3f6fb;--card:#fff;--text:#182235;--muted:#7b8494;--line:#e7ebf1;
+  --blue:#1769d2;--blue2:#3c86e9;--green:#1b9a62;--orange:#ef7e35;--red:#e33c4f;
+  --shadow:0 10px 28px rgba(31,55,88,.07);--r:22px
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--text)}
-button,input{font:inherit}
-#app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:88px}
-.page{padding:18px}
-.header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
-.header .grow{flex:1}
-h1,h2,h3,p{margin:0}
-h1{font-size:26px}.sub{color:var(--muted);font-size:13px;margin-top:4px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.metric b{display:block;font-size:26px;margin-top:5px}
-.btn{width:100%;border:0;border-radius:15px;padding:14px 16px;background:var(--blue);color:#fff;font-weight:800}
-.btn.outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
-.btn.danger{background:var(--red)}
-.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}
-.input{width:100%;border:1px solid var(--border);background:#fff;border-radius:15px;padding:13px 14px;margin:8px 0 12px;text-align:right}
-.segment{display:flex;background:#e9edf4;padding:4px;border-radius:14px;margin-bottom:12px}
-.segment button{flex:1;border:0;background:transparent;padding:10px;border-radius:11px;color:var(--muted);font-weight:700}
-.segment button.active{background:#fff;color:var(--blue)}
-.patient{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:9px}
-.patient .info{flex:1}.patient .name{font-weight:900}.patient .small{font-size:12px;color:var(--muted);margin-top:3px}
-.bubble{min-width:86px;text-align:center;padding:8px;border-radius:14px;border:1px solid}
-.bubble b{font-size:22px;display:block}.bubble span{font-size:9px;font-weight:700}
-.section{font-size:18px;font-weight:900;margin:18px 0 8px}
-.hero{text-align:center}.hero .num{font-size:54px;font-weight:900}.muted{color:var(--muted);font-size:13px}
-.infoLine{display:flex;justify-content:space-between;gap:10px;padding:7px 0}.infoLine span:first-child{font-weight:800}
-.divider{height:1px;background:var(--border);margin:10px 0}
-.doses{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.doses div{padding:8px 2px;background:#f8fafc;border-radius:10px}.doses small{color:var(--muted);display:block;margin-bottom:4px}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:#fff;border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom)}
-.nav button{flex:1;border:0;background:#fff;padding:11px 4px 12px;color:var(--muted);font-size:11px}.nav button.active{color:var(--blue);font-weight:800}
-.back{width:42px;height:42px;border-radius:14px;border:1px solid var(--border);background:#fff;font-size:28px}
-.step{display:flex;gap:8px;align-items:center}.step button{width:34px;height:34px;border:0;border-radius:10px;background:#eaf2fd;color:var(--blue);font-weight:900;font-size:20px}.step span{min-width:70px;text-align:center;font-weight:800}
-.check{display:flex;align-items:center;gap:10px;padding:9px 0}.check input{width:20px;height:20px}
-.center{text-align:center}.logo{width:88px;height:88px;border-radius:26px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;margin:0 auto 16px}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:#172033;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;z-index:10}
-.badge{font-size:12px;font-weight:800}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+body{min-height:100vh}
+button,input,select{font:inherit}
+#app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:92px}
+.page{padding:18px 18px 30px}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;color:white;font-weight:900;box-shadow:var(--shadow)}
+.titleWrap{flex:1}
+.kicker{font-size:12px;font-weight:800;color:var(--blue);margin-bottom:4px}
+h1{margin:0;font-size:28px;line-height:1.1}
+.sub{font-size:13px;color:var(--muted);margin-top:4px}
+.iconBtn{width:46px;height:46px;border:1px solid var(--line);background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.metric{min-height:112px;display:flex;flex-direction:column;justify-content:space-between}
+.metricLabel{font-size:14px;color:var(--muted)}
+.metricValue{font-size:32px;font-weight:900}
+.section{font-size:19px;font-weight:900;margin:22px 0 10px}
+.row{display:flex;gap:10px;align-items:center}.grow{flex:1}
+.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:900}
+.btn.out{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+.btn.soft{background:#edf4fd;color:var(--blue)}
+.patient{display:flex;align-items:center;gap:14px}
+.avatar{width:50px;height:50px;border-radius:16px;background:#edf3fb;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--blue)}
+.patientMain{flex:1}.patientName{font-size:17px;font-weight:900}.patientMeta{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+.inrChip{min-width:82px;padding:10px;border-radius:18px;border:1px solid;text-align:center}
+.inrChip b{display:block;font-size:24px}.inrChip small{font-size:10px;font-weight:800}
+.tabs{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
+.tabs button{flex:1;border:0;background:transparent;padding:10px 8px;border-radius:13px;color:var(--muted);font-weight:800}
+.tabs button.active{background:#fff;color:var(--blue);box-shadow:0 4px 16px rgba(31,55,88,.06)}
+.inp{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 15px;margin-bottom:12px;color:var(--text)}
+.hero{text-align:center;padding:24px 16px}
+.heroLabel{color:var(--muted);font-size:13px}
+.heroValue{font-size:58px;font-weight:900;margin:6px 0}
+.heroState{font-weight:900}
+.heroTarget{color:var(--muted);font-size:12px;margin-top:6px}
+.line{display:flex;justify-content:space-between;gap:12px;padding:8px 0}.lineLabel{color:var(--muted)}.lineValue{font-weight:800}
+.doses{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.dose{background:#f6f8fb;border-radius:12px;padding:9px 2px;text-align:center}.dose small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}.dose b{font-size:13px}
+.langPanel{display:none}.langPanel.show{display:block}
+.langRow{display:flex;justify-content:space-between;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
+.langRow:last-child{border-bottom:0}.langRow.active{color:var(--blue);font-weight:900}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:5}
+.nav button{flex:1;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;padding:4px}.nav .nicon{font-size:20px;display:block;margin-bottom:3px}.nav button.active{color:var(--blue)}
+.roleBar{display:flex;background:#e9eef5;padding:4px;border-radius:16px;margin-bottom:14px}
+.roleBar button{flex:1;border:0;background:transparent;border-radius:13px;padding:10px;font-weight:800;color:var(--muted)}
+.roleBar button.active{background:#fff;color:var(--blue)}
+.notice{background:#fff8e8;border:1px solid #f4df9f;border-radius:16px;padding:12px;color:#7b5a10;font-size:12px;line-height:1.7}
+.back{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:25px}
+.stepper{display:flex;align-items:center;gap:8px}.stepper button{width:34px;height:34px;border:0;border-radius:10px;background:#edf4fd;color:var(--blue);font-size:19px;font-weight:900}.stepper span{min-width:70px;text-align:center;font-weight:900}
+.statusDot{width:9px;height:9px;border-radius:50%}
+.footerNote{font-size:11px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6}
+@media (max-width:390px){.metricValue{font-size:29px}.patientName{font-size:16px}.inrChip{min-width:76px}}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
-const BLUE='#1769d2', GREEN='#198754', ORANGE='#f59e0b', RED='#dc3545', MUTED='#6e7787';
-const days=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
-const seed={
- role:null,doctorName:'دکتر احمدی',currentPatientId:1,messages:[{id:1,patientId:1,title:'برنامه وارفارین',body:'برنامه فعلی شما ثبت شده است.',at:'امروز'}],
- patients:[
- {id:1,name:'علی رضایی',mobile:'09123456789',indication:'دریچه مکانیکی میترال',targetMin:2.5,targetMax:3.5,nextInrDate:'1405/07/15',doses:[5,5,2.5,5,5,5,2.5],lastOpened:100,history:[{id:11,value:4.1,date:'1405/07/09',source:'app',reviewed:false},{id:12,value:3.6,date:'1405/06/29',source:'manual',reviewed:true},{id:13,value:3.1,date:'1405/06/19',source:'manual',reviewed:true}]},
- {id:2,name:'مریم احمدی',mobile:'09351112299',indication:'فیبریلاسیون دهلیزی',targetMin:2,targetMax:3,nextInrDate:'1405/07/20',doses:[2.5,5,2.5,5,2.5,5,2.5],lastOpened:90,history:[{id:21,value:2.6,date:'1405/07/09',source:'sms',reviewed:false},{id:22,value:2.4,date:'1405/06/27',source:'manual',reviewed:true}]},
- {id:3,name:'حسن کریمی',mobile:'09195007766',indication:'VTE',targetMin:2,targetMax:3,nextInrDate:'1405/07/12',doses:[5,5,5,2.5,5,5,2.5],lastOpened:70,history:[{id:31,value:1.7,date:'1405/07/08',source:'sms',reviewed:false},{id:32,value:2.3,date:'1405/06/23',source:'manual',reviewed:true}]},
- {id:4,name:'زهرا محمدی',mobile:'09108884455',indication:'فیبریلاسیون دهلیزی',targetMin:2,targetMax:3,nextInrDate:'1405/07/25',doses:[2.5,2.5,5,2.5,5,2.5,5],lastOpened:60,history:[{id:41,value:2.8,date:'1405/07/07',source:'app',reviewed:true}]}
- ]};
-let state=JSON.parse(localStorage.getItem('inrCareWeb')||'null')||structuredClone(seed);
-let route={name:'root'}, tab='home';
-const app=document.getElementById('app');
-function save(){localStorage.setItem('inrCareWeb',JSON.stringify(state))}
-function faToEn(s=''){return String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))}
-function normPhone(s=''){let t=faToEn(s).replace(/\D/g,'');if(t.startsWith('0098'))t='0'+t.slice(4);if(t.startsWith('98')&&t.length>=12)t='0'+t.slice(2);return t}
-function parseInr(t){t=faToEn(t).replace(/[٫،]/g,'.').replace(/\//g,'.').toLowerCase();for(const r of [/\binr\s*[:=\-]?\s*(\d+(?:\.\d+)?)/i,/آی\s*ان\s*آر\s*[:=\-]?\s*(\d+(?:\.\d+)?)/i,/(\d+(?:\.\d+)?)\s*inr\b/i]){let m=t.match(r);if(m){let v=+m[1];if(v>=0.5&&v<=15)return v}}return null}
-function latest(p){return p?.history?.[0]||null}
-function weekly(a){return a.reduce((x,y)=>x+(+y||0),0)}
-function fmt(n){return Number.isInteger(+n)?String(+n):(+n).toFixed(1)}
-function st(p){let l=latest(p);if(!l)return{label:'بدون INR',color:MUTED};if(l.value>=5||l.value<=1.3)return{label:'بررسی فوری',color:RED};if(l.value<p.targetMin)return{label:'پایین‌تر از هدف',color:ORANGE};if(l.value>p.targetMax)return{label:'بالاتر از هدف',color:'#e76f2e'};return{label:'در محدوده هدف',color:GREEN}}
-function toast(t){let d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),1800)}
-function header(title,sub='',back=false){return `<div class="header"><div class="grow"><h1>${title}</h1>${sub?`<div class="sub">${sub}</div>`:''}</div>${back?`<button class="back" onclick="goRoot()">‹</button>`:''}</div>`}
-function patientRow(p){let s=st(p),l=latest(p);return `<div class="patient" onclick="openPatient(${p.id})"><div class="info"><div class="name">${p.name}</div><div class="small">${p.indication}</div><div class="small">هدف INR: ${p.targetMin}–${p.targetMax}</div></div><div class="bubble" style="color:${s.color};background:${s.color}18;border-color:${s.color}44"><b>${l?l.value.toFixed(1):'—'}</b><span>${s.label}</span></div></div>`}
-function doses(a){return `<div class="card doses">${days.map((d,i)=>`<div><small>${d[0]}</small><b>${fmt(a[i])}</b></div>`).join('')}</div>`}
-function nav(items){return `<div class="nav">${items.map(x=>`<button class="${tab===x.key?'active':''}" onclick="tab='${x.key}';render()">${x.icon}<br>${x.label}</button>`).join('')}</div>`}
-function renderRole(){app.innerHTML=`<div class="page" style="padding-top:90px"><div class="logo">INR</div><h1 class="center">INR Care</h1><p class="sub center" style="margin-bottom:24px">نسخه تست مرورگر آیفون</p><div class="card"><button class="btn" onclick="pickRole('doctor')">ورود به عنوان پزشک</button><div style="height:10px"></div><button class="btn outline" onclick="pickRole('patient')">ورود به عنوان بیمار</button></div></div>`}
-function pickRole(r){state.role=r;save();tab='home';route={name:'root'};render()}
-function renderDoctorHome(){let un=state.patients.reduce((n,p)=>n+p.history.filter(x=>!x.reviewed).length,0);let act=state.patients.filter(p=>st(p).color!==GREEN).length;let recent=[...state.patients].sort((a,b)=>b.lastOpened-a.lastOpened).slice(0,4);app.innerHTML=`<div class="page">${header(state.doctorName,'پنل مدیریت INR')}<div class="grid"><div class="card metric">INR جدید<b style="color:${BLUE}">${un}</b></div><div class="card metric">نیازمند اقدام<b style="color:${RED}">${act}</b></div><div class="card metric">بیماران<b>${state.patients.length}</b></div><div class="card metric">پیام‌ها<b>${state.messages.length}</b></div></div><div class="row"><button class="btn" onclick="tab='patients';render()">بیماران</button><button class="btn outline" onclick="tab='inbox';render()">INRهای جدید</button></div><div class="section">بیماران اخیر</div>${recent.map(patientRow).join('')}</div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'patients',label:'بیماران',icon:'♟'},{key:'inbox',label:'INR جدید',icon:'●'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function renderPatients(){app.innerHTML=`<div class="page">${header('بیماران',`${state.patients.length} بیمار`)}<input class="input" id="q" placeholder="نام، موبایل یا کد بیمار" oninput="filterPatients()"><div class="segment"><button id="segRecent" class="active" onclick="sortMode='recent';filterPatients()">اخیر</button><button id="segAlpha" onclick="sortMode='alpha';filterPatients()">الفبایی</button></div><div id="plist"></div><button class="btn" onclick="route={name:'add'};render()">+ بیمار جدید</button></div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'patients',label:'بیماران',icon:'♟'},{key:'inbox',label:'INR جدید',icon:'●'},{key:'more',label:'بیشتر',icon:'•••'}])}`;filterPatients()}
-let sortMode='recent';
-function filterPatients(){let q=faToEn((document.getElementById('q')?.value||'').trim().toLowerCase());let arr=state.patients.filter(p=>!q||p.name.toLowerCase().includes(q)||normPhone(p.mobile).includes(normPhone(q))||String(p.id).includes(q));arr=[...arr];if(sortMode==='recent')arr.sort((a,b)=>b.lastOpened-a.lastOpened);else arr.sort((a,b)=>a.name.localeCompare(b.name,'fa'));let pl=document.getElementById('plist');if(pl)pl.innerHTML=arr.map(patientRow).join('');document.getElementById('segRecent')?.classList.toggle('active',sortMode==='recent');document.getElementById('segAlpha')?.classList.toggle('active',sortMode==='alpha')}
-function renderInbox(){let items=[];state.patients.forEach(p=>p.history.filter(h=>!h.reviewed).forEach(h=>items.push({p,h})));items.sort((a,b)=>b.h.id-a.h.id);app.innerHTML=`<div class="page">${header('INRهای جدید',`${items.length} مورد بررسی‌نشده`)}${items.map(({p,h})=>`<div class="card infoLine" onclick="openPatient(${p.id})"><div><b>${h.value.toFixed(1)}</b></div><div><b>${p.name}</b><div class="muted">${h.date} • ${h.source}</div></div></div>`).join('')}<div class="section">شبیه‌ساز پیامک ورودی</div><input class="input" id="smsPhone" value="09123456789" placeholder="شماره بیمار"><input class="input" id="smsText" value="INR ۲/۸" placeholder="مثلاً INR ۲/۸"><button class="btn" onclick="simulateSms()">ثبت پیامک آزمایشی</button></div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'patients',label:'بیماران',icon:'♟'},{key:'inbox',label:'INR جدید',icon:'●'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function simulateSms(){let ph=normPhone(document.getElementById('smsPhone').value),txt=document.getElementById('smsText').value,p=state.patients.find(x=>normPhone(x.mobile)===ph);if(!p)return alert('بیماری با این شماره پیدا نشد');let v=parseInr(txt);if(v==null)return alert('INR تشخیص داده نشد');p.history.unshift({id:Date.now(),value:v,date:'امروز',source:'sms',reviewed:false});p.lastOpened=Date.now();save();toast(`INR ${v} برای ${p.name} ثبت شد`);renderInbox()}
-function renderMore(role){app.innerHTML=`<div class="page">${header('بیشتر')}<div class="card"><div class="infoLine"><span>${role==='doctor'?'پزشک':'بیمار'}</span><span>حالت فعلی</span></div><div class="infoLine"><span>مرورگر آیفون</span><span>محل اجرا</span></div><div class="infoLine"><span>LocalStorage</span><span>ذخیره‌سازی</span></div></div><button class="btn outline" onclick="switchRole()">تغییر حالت پزشک / بیمار</button><div style="height:10px"></div><button class="btn danger" onclick="resetData()">بازنشانی اطلاعات آزمایشی</button></div>${nav(role==='doctor'?[{key:'home',label:'خانه',icon:'⌂'},{key:'patients',label:'بیماران',icon:'♟'},{key:'inbox',label:'INR جدید',icon:'●'},{key:'more',label:'بیشتر',icon:'•••'}]:[{key:'home',label:'خانه',icon:'⌂'},{key:'history',label:'تاریخچه',icon:'≋'},{key:'messages',label:'پیام‌ها',icon:'✉'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function switchRole(){state.role=state.role==='doctor'?'patient':'doctor';save();tab='home';render()}
-function resetData(){if(confirm('اطلاعات آزمایشی بازنشانی شود؟')){let role=state.role;state=structuredClone(seed);state.role=role;save();route={name:'root'};tab='home';render()}}
-function openPatient(id){let p=state.patients.find(x=>x.id===id);if(p)p.lastOpened=Date.now();save();route={name:'profile',id};render()}
-function goRoot(){route={name:'root'};render()}
-function renderProfile(id){let p=state.patients.find(x=>x.id===id),l=latest(p),s=st(p);app.innerHTML=`<div class="page">${header(p.name,`کد بیمار: ${p.id}`,true)}<div class="card"><div><b>${p.mobile}</b></div><div class="muted" style="margin-top:4px">${p.indication}</div><div class="divider"></div><div class="infoLine"><span>${p.targetMin} – ${p.targetMax}</span><span>هدف INR</span></div><div class="infoLine"><span>${fmt(weekly(p.doses))} mg</span><span>دوز هفتگی</span></div><div class="infoLine"><span>${p.nextInrDate||'—'}</span><span>INR بعدی</span></div></div><div class="card hero" style="background:${s.color}10;border-color:${s.color}33"><div class="muted">آخرین INR</div><div class="num" style="color:${s.color}">${l?l.value.toFixed(1):'—'}</div><b style="color:${s.color}">${s.label}</b>${l?`<div class="muted" style="margin-top:5px">${l.date} • ${l.source}</div>`:''}</div>${l&&!l.reviewed?`<button class="btn outline" onclick="markReviewed(${p.id})">علامت‌گذاری به عنوان بررسی‌شده</button>`:''}<div class="section">برنامه فعلی وارفارین</div>${doses(p.doses)}<div class="section">تاریخچه INR</div>${p.history.map(h=>`<div class="card infoLine"><span class="badge" style="color:${h.reviewed?GREEN:ORANGE}">${h.reviewed?'بررسی شده':'جدید'}</span><div><b>INR ${h.value.toFixed(1)}</b><div class="muted">${h.date} • ${h.source}</div></div></div>`).join('')}<button class="btn" onclick="route={name:'review',id:${p.id}};render()">بررسی و تنظیم دوز</button></div>`}
-function markReviewed(id){let p=state.patients.find(x=>x.id===id);if(p?.history?.[0])p.history[0].reviewed=true;save();renderProfile(id)}
-function renderReview(id){let p=state.patients.find(x=>x.id===id),l=latest(p);window.tmpDoses=[...p.doses];app.innerHTML=`<div class="page">${header('بررسی INR',p.name,true)}<div class="row"><div class="card center"><div class="muted">INR فعلی</div><b style="font-size:24px">${l?l.value.toFixed(1):'—'}</b></div><div class="card center"><div class="muted">هدف</div><b style="font-size:24px">${p.targetMin}–${p.targetMax}</b></div></div><div class="card"><div class="section" style="margin-top:0">بررسی عوامل بالینی</div>${['خونریزی دارد؟','دوز اشتباه مصرف شده؟','داروی جدید شروع شده؟','آنتی‌بیوتیک جدید؟','بیماری حاد / تب / اسهال؟','تغییر عمده رژیم غذایی؟'].map((x,i)=>`<label class="check"><input type="checkbox" id="f${i}"><span>${x}</span></label>`).join('')}</div><div class="card" style="background:#fff8e6;border-color:#f4d487"><b style="color:#8a5b00">Decision Support</b><div class="muted" style="margin-top:6px">پیشنهاد خودکار دوز هنوز فعال نشده و دوز نهایی فقط با تأیید پزشک ثبت می‌شود.</div></div><div class="section">تنظیم دوز توسط پزشک</div><div id="doseEdit"></div><div class="card"><div class="infoLine"><span id="oldW">${fmt(weekly(p.doses))} mg</span><span>دوز هفتگی قبلی</span></div><div class="infoLine"><span id="newW">${fmt(weekly(tmpDoses))} mg</span><span>دوز هفتگی جدید</span></div></div><button class="btn" onclick="approveDose(${p.id})">تأیید و ثبت</button></div>`;renderDoseEdit()}
-function renderDoseEdit(){let el=document.getElementById('doseEdit');if(!el)return;el.innerHTML=days.map((d,i)=>`<div class="card infoLine"><div class="step"><button onclick="adjDose(${i},-.5)">−</button><span>${fmt(tmpDoses[i])} mg</span><button onclick="adjDose(${i},.5)">+</button></div><b>${d}</b></div>`).join('');document.getElementById('newW').textContent=fmt(weekly(tmpDoses))+' mg'}
-function adjDose(i,d){tmpDoses[i]=Math.max(0,Math.round((tmpDoses[i]+d)*2)/2);renderDoseEdit()}
-function approveDose(id){let p=state.patients.find(x=>x.id===id);p.doses=[...tmpDoses];if(p.history[0])p.history[0].reviewed=true;state.messages.unshift({id:Date.now(),patientId:id,title:'برنامه جدید وارفارین',body:`دوز هفتگی جدید: ${fmt(weekly(tmpDoses))} mg`,at:'امروز'});save();toast('برنامه جدید ثبت شد');route={name:'profile',id};render()}
-function renderAdd(){app.innerHTML=`<div class="page">${header('بیمار جدید','',true)}<input class="input" id="n" placeholder="نام و نام خانوادگی"><input class="input" id="m" placeholder="شماره موبایل"><input class="input" id="ind" placeholder="علت مصرف وارفارین"><div class="row"><input class="input" id="min" value="2" placeholder="حداقل INR"><input class="input" id="max" value="3" placeholder="حداکثر INR"></div><button class="btn" onclick="savePatient()">ذخیره بیمار</button></div>`}
-function savePatient(){let name=document.getElementById('n').value.trim(),mobile=normPhone(document.getElementById('m').value);if(!name||mobile.length<10)return alert('نام و موبایل را کامل وارد کن');let id=Math.max(0,...state.patients.map(p=>p.id))+1;state.patients.push({id,name,mobile,indication:document.getElementById('ind').value.trim()||'—',targetMin:+faToEn(document.getElementById('min').value)||2,targetMax:+faToEn(document.getElementById('max').value)||3,nextInrDate:'',doses:[0,0,0,0,0,0,0],lastOpened:Date.now(),history:[]});save();toast('بیمار ذخیره شد');route={name:'root'};tab='patients';render()}
-function renderPatientHome(){let p=state.patients.find(x=>x.id===state.currentPatientId)||state.patients[0],l=latest(p),s=st(p);app.innerHTML=`<div class="page">${header('سلام '+p.name.split(' ')[0],'پنل بیمار')}<div class="card hero" style="background:${s.color}10;border-color:${s.color}33"><div class="muted">آخرین INR</div><div class="num" style="color:${s.color}">${l?l.value.toFixed(1):'—'}</div><b style="color:${s.color}">${s.label}</b><div class="muted">هدف: ${p.targetMin}–${p.targetMax}</div></div><div class="card"><div class="muted">دوز امروز</div><h1 style="color:${BLUE};margin-top:4px">${fmt(p.doses[0])} mg</h1><div class="divider"></div><div class="infoLine"><span>${p.nextInrDate||'—'}</span><span>INR بعدی</span></div></div><button class="btn" onclick="route={name:'register',id:${p.id}};render()">ثبت INR جدید</button><div class="section">برنامه این هفته</div>${doses(p.doses)}</div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'history',label:'تاریخچه',icon:'≋'},{key:'messages',label:'پیام‌ها',icon:'✉'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function renderPatientHistory(){let p=state.patients.find(x=>x.id===state.currentPatientId)||state.patients[0];app.innerHTML=`<div class="page">${header('تاریخچه INR',p.name)}${p.history.map(h=>`<div class="card infoLine"><b style="font-size:26px">${h.value.toFixed(1)}</b><div><b>${h.date}</b><div class="muted">${h.source}</div></div></div>`).join('')}</div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'history',label:'تاریخچه',icon:'≋'},{key:'messages',label:'پیام‌ها',icon:'✉'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function renderMessages(){let p=state.patients.find(x=>x.id===state.currentPatientId)||state.patients[0],list=state.messages.filter(m=>m.patientId===p.id);app.innerHTML=`<div class="page">${header('پیام‌ها')}${list.length?list.map(m=>`<div class="card"><b>${m.title}</b><div style="margin-top:6px">${m.body}</div><div class="muted" style="margin-top:8px">${m.at}</div></div>`).join(''):'<div class="card muted">پیامی وجود ندارد.</div>'}</div>${nav([{key:'home',label:'خانه',icon:'⌂'},{key:'history',label:'تاریخچه',icon:'≋'},{key:'messages',label:'پیام‌ها',icon:'✉'},{key:'more',label:'بیشتر',icon:'•••'}])}`}
-function renderRegister(id){let p=state.patients.find(x=>x.id===id);app.innerHTML=`<div class="page">${header('ثبت INR',p.name,true)}<div class="card center"><div class="muted">هدف شما</div><h1>${p.targetMin} – ${p.targetMax}</h1></div><input class="input" style="font-size:34px;text-align:center;padding:22px" id="newInr" placeholder="مثلاً 2.8"><button class="btn" onclick="saveInr(${id})">ثبت نتیجه</button></div>`}
-function saveInr(id){let raw=faToEn(document.getElementById('newInr').value).replace('/','.').replace('٫','.'),v=+raw;if(!v||v<.5||v>15)return alert('عدد INR معتبر وارد کن');let p=state.patients.find(x=>x.id===id);p.history.unshift({id:Date.now(),value:v,date:'امروز',source:'app',reviewed:false});p.lastOpened=Date.now();save();toast('INR ثبت شد');route={name:'root'};render()}
-function render(){if(!state.role)return renderRole();if(route.name==='add')return renderAdd();if(route.name==='profile')return renderProfile(route.id);if(route.name==='review')return renderReview(route.id);if(route.name==='register')return renderRegister(route.id);if(state.role==='doctor'){if(tab==='home')return renderDoctorHome();if(tab==='patients')return renderPatients();if(tab==='inbox')return renderInbox();return renderMore('doctor')}else{if(tab==='home')return renderPatientHome();if(tab==='history')return renderPatientHistory();if(tab==='messages')return renderMessages();return renderMore('patient')}}
+const T={
+fa:{dir:'rtl',doctorPanel:'پنل مدیریت INR',patientPanel:'پنل بیمار',doctorName:'دکتر احمدی',newInr:'INR جدید',needsAction:'نیازمند اقدام',patients:'بیماران',messages:'پیام‌ها',recent:'بیماران اخیر',home:'خانه',more:'بیشتر',history:'تاریخچه',target:'هدف INR',weekly:'دوز هفتگی',review:'بررسی و تنظیم دوز',doctor:'پزشک',patient:'بیمار',language:'زبان',selectLang:'انتخاب زبان',doseToday:'دوز امروز',nextInr:'INR بعدی',register:'ثبت INR جدید',search:'جستجو نام یا موبایل',addPatient:'بیمار جدید',demo:'نسخه آزمایشی رابط کاربری',high:'بالاتر از هدف',low:'پایین‌تر از هدف',ok:'در محدوده هدف',urgent:'بررسی فوری',new:'جدید',reviewed:'بررسی شده',save:'ذخیره',back:'بازگشت'},
+en:{dir:'ltr',doctorPanel:'INR Management',patientPanel:'Patient Portal',doctorName:'Dr. Ahmadi',newInr:'New INR',needsAction:'Needs Action',patients:'Patients',messages:'Messages',recent:'Recent Patients',home:'Home',more:'More',history:'History',target:'INR Target',weekly:'Weekly Dose',review:'Review & Adjust Dose',doctor:'Doctor',patient:'Patient',language:'Language',selectLang:'Choose language',doseToday:'Today’s dose',nextInr:'Next INR',register:'Add new INR',search:'Search name or phone',addPatient:'Add patient',demo:'UI preview version',high:'Above target',low:'Below target',ok:'In target range',urgent:'Urgent review',new:'New',reviewed:'Reviewed',save:'Save',back:'Back'},
+ar:{dir:'rtl',doctorPanel:'إدارة INR',patientPanel:'بوابة المريض',doctorName:'د. أحمدي',newInr:'INR جديد',needsAction:'يحتاج إجراء',patients:'المرضى',messages:'الرسائل',recent:'المرضى الأخيرون',home:'الرئيسية',more:'المزيد',history:'السجل',target:'هدف INR',weekly:'الجرعة الأسبوعية',review:'مراجعة الجرعة',doctor:'طبيب',patient:'مريض',language:'اللغة',selectLang:'اختر اللغة',doseToday:'جرعة اليوم',nextInr:'INR القادم',register:'إضافة INR',search:'بحث بالاسم أو الهاتف',addPatient:'إضافة مريض',demo:'نسخة تجريبية للواجهة',high:'أعلى من الهدف',low:'أقل من الهدف',ok:'ضمن الهدف',urgent:'مراجعة عاجلة',new:'جديد',reviewed:'تمت المراجعة',save:'حفظ',back:'رجوع'},
+tr:{dir:'ltr',doctorPanel:'INR Yönetimi',patientPanel:'Hasta Portalı',doctorName:'Dr. Ahmadi',newInr:'Yeni INR',needsAction:'İşlem Gerekli',patients:'Hastalar',messages:'Mesajlar',recent:'Son Hastalar',home:'Ana Sayfa',more:'Daha Fazla',history:'Geçmiş',target:'INR Hedefi',weekly:'Haftalık Doz',review:'Dozu Gözden Geçir',doctor:'Doktor',patient:'Hasta',language:'Dil',selectLang:'Dil seçin',doseToday:'Bugünkü doz',nextInr:'Sonraki INR',register:'Yeni INR ekle',search:'İsim veya telefon ara',addPatient:'Hasta ekle',demo:'Arayüz önizleme',high:'Hedef üstü',low:'Hedef altı',ok:'Hedef aralığında',urgent:'Acil inceleme',new:'Yeni',reviewed:'İncelendi',save:'Kaydet',back:'Geri'},
+fr:{dir:'ltr',doctorPanel:'Gestion de l’INR',patientPanel:'Espace patient',doctorName:'Dr Ahmadi',newInr:'Nouvel INR',needsAction:'Action requise',patients:'Patients',messages:'Messages',recent:'Patients récents',home:'Accueil',more:'Plus',history:'Historique',target:'Cible INR',weekly:'Dose hebdomadaire',review:'Réviser la dose',doctor:'Médecin',patient:'Patient',language:'Langue',selectLang:'Choisir la langue',doseToday:'Dose du jour',nextInr:'Prochain INR',register:'Ajouter un INR',search:'Rechercher nom ou téléphone',addPatient:'Ajouter un patient',demo:'Aperçu de l’interface',high:'Au-dessus de la cible',low:'Sous la cible',ok:'Dans la cible',urgent:'Révision urgente',new:'Nouveau',reviewed:'Révisé',save:'Enregistrer',back:'Retour'},
+de:{dir:'ltr',doctorPanel:'INR-Verwaltung',patientPanel:'Patientenportal',doctorName:'Dr. Ahmadi',newInr:'Neuer INR',needsAction:'Handlungsbedarf',patients:'Patienten',messages:'Nachrichten',recent:'Letzte Patienten',home:'Start',more:'Mehr',history:'Verlauf',target:'INR-Ziel',weekly:'Wochendosis',review:'Dosis prüfen',doctor:'Arzt',patient:'Patient',language:'Sprache',selectLang:'Sprache wählen',doseToday:'Heutige Dosis',nextInr:'Nächster INR',register:'INR hinzufügen',search:'Name oder Telefon suchen',addPatient:'Patient hinzufügen',demo:'UI-Vorschau',high:'Über Zielbereich',low:'Unter Zielbereich',ok:'Im Zielbereich',urgent:'Dringend prüfen',new:'Neu',reviewed:'Geprüft',save:'Speichern',back:'Zurück'}
+};
+const langs=[['fa','فارسی'],['en','English'],['ar','العربية'],['tr','Türkçe'],['fr','Français'],['de','Deutsch']];
+const seed={role:'doctor',patients:[
+{id:1,name:{fa:'علی رضایی',ar:'علي رضائي',default:'Ali Rezaei'},mobile:'09123456789',indication:{fa:'دریچه مکانیکی میترال',ar:'صمام ميترالي ميكانيكي',default:'Mechanical mitral valve'},min:2.5,max:3.5,doses:[5,5,2.5,5,5,5,2.5],history:[{v:4.1,date:'1405/07/09',reviewed:false}]},
+{id:2,name:{fa:'مریم احمدی',ar:'مريم أحمدي',default:'Maryam Ahmadi'},mobile:'09351112299',indication:{fa:'فیبریلاسیون دهلیزی',ar:'رجفان أذيني',default:'Atrial fibrillation'},min:2,max:3,doses:[2.5,5,2.5,5,2.5,5,2.5],history:[{v:2.6,date:'1405/07/09',reviewed:false}]},
+{id:3,name:{fa:'حسن کریمی',ar:'حسن كريمي',default:'Hasan Karimi'},mobile:'09195007766',indication:{fa:'VTE',ar:'VTE',default:'VTE'},min:2,max:3,doses:[5,5,5,2.5,5,5,2.5],history:[{v:1.7,date:'1405/07/08',reviewed:false}]}
+],messages:1,currentPatientId:1};
+let S=JSON.parse(localStorage.getItem('inrCareModern')||'null')||structuredClone(seed);
+let lang=localStorage.getItem('inrLang')||((navigator.language||'en').slice(0,2)); if(!T[lang])lang='en';
+let tab='home',route={name:'root'},tmp=[];
+const A=document.getElementById('app');
+function tr(k){return T[lang][k]||T.en[k]||k}
+function setLang(l){lang=l;localStorage.setItem('inrLang',l);document.documentElement.dir=T[l].dir;render()}
+function nm(p){return p.name[lang]||p.name.default}
+function ind(p){return p.indication[lang]||p.indication.default}
+function latest(p){return p.history[0]||null}
+function wk(a){return a.reduce((x,y)=>x+(+y||0),0)}
+function fd(n){return Number.isInteger(+n)?String(+n):(+n).toFixed(1)}
+function state(p){let l=latest(p);if(!l)return['—','#8490a3'];if(l.v>=5||l.v<=1.3)return[tr('urgent'),'#e33c4f'];if(l.v<p.min)return[tr('low'),'#f59e0b'];if(l.v>p.max)return[tr('high'),'#ef7e35'];return[tr('ok'),'#1b9a62']}
+function save(){localStorage.setItem('inrCareModern',JSON.stringify(S))}
+function header(title,subtitle='',back=false){return `<div class="topbar">${back?`<button class="back" onclick="root()">‹</button>`:`<div class="logo">INR</div>`}<div class="titleWrap"><div class="kicker">${subtitle}</div><h1>${title}</h1></div><button class="iconBtn" onclick="toggleLang()">🌐</button></div>${langPanel()}`}
+function langPanel(){return `<div id="langPanel" class="card langPanel"><div class="section" style="margin-top:0">${tr('selectLang')}</div>${langs.map(([c,n])=>`<div class="langRow ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div>`}
+function toggleLang(){document.getElementById('langPanel')?.classList.toggle('show')}
+function roleBar(){return `<div class="roleBar"><button class="${S.role==='doctor'?'active':''}" onclick="S.role='doctor';save();tab='home';render()">${tr('doctor')}</button><button class="${S.role==='patient'?'active':''}" onclick="S.role='patient';save();tab='home';render()">${tr('patient')}</button></div>`}
+function nav(items){return `<div class="nav">${items.map(([k,ic,lb])=>`<button class="${tab===k?'active':''}" onclick="tab='${k}';render()"><span class="nicon">${ic}</span>${lb}</button>`).join('')}</div>`}
+function patientCard(p){let l=latest(p),st=state(p);return `<div class="card patient" onclick="route={name:'profile',id:${p.id}};render()"><div class="avatar">${nm(p).trim().charAt(0)}</div><div class="patientMain"><div class="patientName">${nm(p)}</div><div class="patientMeta">${ind(p)}<br>${tr('target')}: ${p.min}–${p.max}</div></div><div class="inrChip" style="color:${st[1]};border-color:${st[1]}55;background:${st[1]}12"><b>${l?l.v.toFixed(1):'—'}</b><small>${st[0]}</small></div></div>`}
+function doseGrid(a){let ds=T[lang].dir==='rtl'?['ش','ی','د','س','چ','پ','ج']:['Sa','Su','Mo','Tu','We','Th','Fr'];return `<div class="card doses">${ds.map((d,i)=>`<div class="dose"><small>${d}</small><b>${fd(a[i])}</b></div>`).join('')}</div>`}
+function doctorHome(){let un=S.patients.reduce((n,p)=>n+p.history.filter(x=>!x.reviewed).length,0),act=S.patients.filter(p=>state(p)[1]!=='#1b9a62').length;A.innerHTML=`<div class="page">${header(tr('doctorName'),tr('doctorPanel'))}${roleBar()}<div class="grid"><div class="card metric"><div class="metricLabel">${tr('newInr')}</div><div class="metricValue" style="color:var(--blue)">${un}</div></div><div class="card metric"><div class="metricLabel">${tr('needsAction')}</div><div class="metricValue" style="color:var(--red)">${act}</div></div><div class="card metric"><div class="metricLabel">${tr('patients')}</div><div class="metricValue">${S.patients.length}</div></div><div class="card metric"><div class="metricLabel">${tr('messages')}</div><div class="metricValue">${S.messages}</div></div></div><div class="section">${tr('recent')}</div>${S.patients.map(patientCard).join('')}<div class="footerNote">${tr('demo')}</div></div>${nav([['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]])}`}
+function patients(){A.innerHTML=`<div class="page">${header(tr('patients'),tr('doctorPanel'))}${roleBar()}<input class="inp" id="q" placeholder="${tr('search')}" oninput="filterP()"><div id="plist">${S.patients.map(patientCard).join('')}</div><button class="btn soft">${tr('addPatient')}</button></div>${nav([['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]])}`}
+function filterP(){let q=(document.getElementById('q').value||'').toLowerCase();document.getElementById('plist').innerHTML=S.patients.filter(p=>nm(p).toLowerCase().includes(q)||p.mobile.includes(q)).map(patientCard).join('')}
+function profile(id){let p=S.patients.find(x=>x.id===id),l=latest(p),st=state(p);A.innerHTML=`<div class="page">${header(nm(p),tr('patients'),true)}<div class="card"><div class="line"><span class="lineValue">${p.mobile}</span><span class="lineLabel">${tr('patients')}</span></div><div class="line"><span class="lineValue">${p.min}–${p.max}</span><span class="lineLabel">${tr('target')}</span></div><div class="line"><span class="lineValue">${fd(wk(p.doses))} mg</span><span class="lineLabel">${tr('weekly')}</span></div></div><div class="card hero" style="background:${st[1]}0f;border-color:${st[1]}38"><div class="heroLabel">${tr('newInr')}</div><div class="heroValue" style="color:${st[1]}">${l?l.v.toFixed(1):'—'}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div><div class="heroTarget">${tr('target')}: ${p.min}–${p.max}</div></div><div class="section">${tr('weekly')}</div>${doseGrid(p.doses)}<button class="btn" onclick="route={name:'review',id:${p.id}};render()">${tr('review')}</button></div>`}
+function review(id){let p=S.patients.find(x=>x.id===id);tmp=[...p.doses];A.innerHTML=`<div class="page">${header(tr('review'),nm(p),true)}<div class="notice">${tr('demo')}</div><div class="section">${tr('weekly')}</div><div id="doseEdit"></div><div class="card"><div class="line"><span id="sum" class="lineValue">${fd(wk(tmp))} mg</span><span class="lineLabel">${tr('weekly')}</span></div></div><button class="btn" onclick="approve(${id})">${tr('save')}</button></div>`;doseEdit()}
+function doseEdit(){let ds=['1','2','3','4','5','6','7'];document.getElementById('doseEdit').innerHTML=tmp.map((v,i)=>`<div class="card line"><div class="stepper"><button onclick="adj(${i},-.5)">−</button><span>${fd(v)} mg</span><button onclick="adj(${i},.5)">+</button></div><span class="lineLabel">${ds[i]}</span></div>`).join('');document.getElementById('sum').textContent=fd(wk(tmp))+' mg'}
+function adj(i,d){tmp[i]=Math.max(0,Math.round((tmp[i]+d)*2)/2);doseEdit()}
+function approve(id){let p=S.patients.find(x=>x.id===id);p.doses=[...tmp];if(p.history[0])p.history[0].reviewed=true;save();route={name:'profile',id};render()}
+function patientHome(){let p=S.patients.find(x=>x.id===S.currentPatientId)||S.patients[0],l=latest(p),st=state(p);A.innerHTML=`<div class="page">${header(nm(p),tr('patientPanel'))}${roleBar()}<div class="card hero" style="background:${st[1]}0f;border-color:${st[1]}38"><div class="heroLabel">${tr('newInr')}</div><div class="heroValue" style="color:${st[1]}">${l?l.v.toFixed(1):'—'}</div><div class="heroState" style="color:${st[1]}">${st[0]}</div><div class="heroTarget">${tr('target')}: ${p.min}–${p.max}</div></div><div class="card"><div class="line"><span class="lineValue">${fd(p.doses[0])} mg</span><span class="lineLabel">${tr('doseToday')}</span></div><div class="line"><span class="lineValue">—</span><span class="lineLabel">${tr('nextInr')}</span></div></div><button class="btn">${tr('register')}</button><div class="section">${tr('weekly')}</div>${doseGrid(p.doses)}</div>${nav([['home','⌂',tr('home')],['history','≋',tr('history')],['messages','✉',tr('messages')],['more','•••',tr('more')]])}`}
+function more(){A.innerHTML=`<div class="page">${header(tr('more'),tr('language'))}${roleBar()}<div class="card">${langs.map(([c,n])=>`<div class="langRow ${c===lang?'active':''}" onclick="setLang('${c}')"><span>${n}</span><span>${c===lang?'✓':''}</span></div>`).join('')}</div></div>${nav(S.role==='doctor'?[['home','⌂',tr('home')],['patients','👥',tr('patients')],['history','●',tr('newInr')],['more','•••',tr('more')]]:[['home','⌂',tr('home')],['history','≋',tr('history')],['messages','✉',tr('messages')],['more','•••',tr('more')]])}`}
+function root(){route={name:'root'};render()}
+function render(){document.documentElement.dir=T[lang].dir;document.documentElement.lang=lang;if(route.name==='profile')return profile(route.id);if(route.name==='review')return review(route.id);if(S.role==='doctor'){if(tab==='home')return doctorHome();if(tab==='patients')return patients();return more()}else{if(tab==='home')return patientHome();return more()}}
 render();
 </script>
-</body>
-</html>
+</body></html>
